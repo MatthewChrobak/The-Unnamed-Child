@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Game.Events;
+using Game.Patterns.Singleton;
 
 namespace Game
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args) {
+        public static void Main(string[] args) {
+            var queue = Singleton.Create<EventQueue>();
+
+
+
+            queue.Run();
         }
     }
 }
