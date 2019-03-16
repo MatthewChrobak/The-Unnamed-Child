@@ -2,6 +2,7 @@
 using Game.IO;
 using Game.Models;
 using Game.Models.Rooms;
+using Game.Models.Rooms.Objects;
 using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
 using System;
@@ -12,6 +13,10 @@ namespace Game.UserInterface.Scenes
     {
         public InGame() {
             this.OnJoystickButtonPressed += (button) => {
+                var data = Singleton.Get<DataManager>();
+                var room = data.CurrentRoom;
+                var player = data.Player;
+
                 foreach (var child in this.Children) {
                     if (child.OnJoystickButtonPressed != null) {
                         child.OnJoystickButtonPressed(button);
@@ -27,9 +32,6 @@ namespace Game.UserInterface.Scenes
                 if (button == JoystickButton.Y) {
                     Console.Write("Waiting on input: ");
                     string[] cmd = Console.ReadLine().Split(' ');
-                    var data = Singleton.Get<DataManager>();
-                    var room = data.CurrentRoom;
-                    var player = data.Player;
 
                     switch (cmd[0]) {
                         case "new": {
@@ -62,11 +64,32 @@ namespace Game.UserInterface.Scenes
                         case "debug":
                             Console.WriteLine(player.X + " " + player.Y);
                             break;
+                        case "newobj": {
+                            string typeName = "Game.Models.Rooms.Objects." + cmd[1];
+                            Type type = Type.GetType(typeName);
+                            var obj = (CollisionObject)Activator.CreateInstance(type);
+                            obj.SurfaceName = cmd[2];
+                            obj.Position = (player.X, player.Y);
+                            obj.Size = (player.Width, player.Height);
+
+                            obj.HandleAdditionalParamsForCreation(cmd);
+
+                            obj.RefreshContext();
+                            room.Objects.Add(obj);
+                            break;
+                        }
                     }
                 }
 #endif
-                };
-            }
+
+                if (button == JoystickButton.A) {
+                    foreach (var obj in room.Objects) {
+                        obj.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
+                    }
+                }
+
+            };
+        }
 
         public override void Draw(IDrawableSurface surface) {
             var data = Singleton.Get<DataManager>();

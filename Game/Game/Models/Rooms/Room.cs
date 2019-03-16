@@ -1,12 +1,16 @@
 ﻿using Game.Graphics;
 using Game.Graphics.Contexts;
+using Game.Models.Rooms.Objects;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace Game.Models.Rooms
 {
+    [XmlInclude(typeof(Door))]
     [Serializable]
     public abstract class Room : IDrawableObject
     {
@@ -14,6 +18,8 @@ namespace Game.Models.Rooms
         public string BackgroundImage;
         public (float x, float y) Size;
         public float Player_Y_Height;
+
+        public List<CollisionObject> Objects;
 
         public (float lb, float ub) Bounds;
 
@@ -30,6 +36,7 @@ namespace Game.Models.Rooms
         }
 
         public Room() {
+            Objects = new List<CollisionObject>();
             Size = (GameWindow.WINDOW_WIDTH, GameWindow.WINDOW_HEIGHT);
             RefreshContext();
         }
@@ -43,6 +50,10 @@ namespace Game.Models.Rooms
 
         public void Draw(IDrawableSurface surface) {
             surface.Draw(this.BackgroundImage, this._ctx);
+
+            foreach (var obj in this.Objects) {
+                obj.Draw(surface);
+            }
         }
 
         public virtual void HandleJoystickMoved(uint joystickID, JoystickAxis axis, float position) {

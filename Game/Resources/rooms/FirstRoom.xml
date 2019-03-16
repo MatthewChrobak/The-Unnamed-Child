@@ -6,6 +6,22 @@
     <Item2>540</Item2>
   </Size>
   <Player_Y_Height>315</Player_Y_Height>
+  <Objects>
+    <CollisionObject xsi:type="Door">
+      <Position>
+        <Item1>120</Item1>
+        <Item2>315</Item2>
+      </Position>
+      <Size>
+        <Item1>100</Item1>
+        <Item2>175</Item2>
+      </Size>
+      <SurfaceName>graphics/door.png</SurfaceName>
+      <RoomName>LivingRoom</RoomName>
+      <PlayerX>0</PlayerX>
+      <PlayerY>280</PlayerY>
+    </CollisionObject>
+  </Objects>
   <Bounds>
     <Item1>120</Item1>
     <Item2>590</Item2>
