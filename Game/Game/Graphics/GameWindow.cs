@@ -2,6 +2,7 @@
 using Game.Graphics.Contexts;
 using Game.Models;
 using Game.Patterns.Singleton;
+using Game.UserInterface;
 using SFML.Graphics;
 using SFML.System;
 
@@ -28,10 +29,7 @@ namespace Game.Graphics
 
             this._buffer.DispatchEvents();
 
-            // TODO: Draw game data on the current scene.
-
-            new Foo().Draw(this);
-            new Foo2().Draw(this);
+            Get<UIManager>().CurrentScene.Draw(this);
 
             this._buffer.Display();
         }
@@ -50,13 +48,41 @@ namespace Game.Graphics
                     ctx.Size.x / rect.width,
                     ctx.Size.y / rect.height
                     );
+            } else {
+                sprite.Scale = new Vector2f(
+                    ctx.Size.x / sprite.Texture.Size.X,
+                    ctx.Size.y / sprite.Texture.Size.Y
+                    );
             }
 
             this._buffer.Draw(sprite);
         }
 
-        public void Draw(string FontName, TextContext ctx) {
-            var font = _fonts.Get(FontName);
+        public void Draw(string strText, TextContext ctx) {
+            var font = _fonts.Get(ctx.FontName);
+
+            var text = new Text(strText, font);
+            text.Position = new Vector2f(ctx.Position.x, ctx.Position.y);
+            text.FillColor = ctx.FontColor;
+            text.CharacterSize = (uint)ctx.FontSize;
+
+            if (ctx.HorizontalCenter_Width.HasValue) {
+                float hw = ctx.HorizontalCenter_Width.Value;
+
+                float right = text.FindCharacterPos((uint)(strText.Length - 1)).X;
+                var previousPos = text.Position;
+                text.Position = new Vector2f(previousPos.X + ((hw - right) / 2), previousPos.Y);
+            }
+
+            if (ctx.VerticalCenter_Height.HasValue) {
+                float vh = ctx.VerticalCenter_Height.Value;
+
+                var previousPos = text.Position;
+                float top = previousPos.Y + ((vh - ctx.FontSize) / 2);
+                text.Position = new Vector2f(previousPos.X, top);
+            }
+
+            this._buffer.Draw(text);
         }
     }
 }

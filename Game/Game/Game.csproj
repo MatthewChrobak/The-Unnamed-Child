@@ -74,6 +74,12 @@
     <Compile Include="Patterns\Singleton\Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface\Components\Button.cs" />
+    <Compile Include="UserInterface\Components\Container.cs" />
+    <Compile Include="UserInterface\Components\Scene.cs" />
+    <Compile Include="UserInterface\Components\UIElement.cs" />
+    <Compile Include="UserInterface\Scenes\MainMenu.cs" />
+    <Compile Include="UserInterface\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

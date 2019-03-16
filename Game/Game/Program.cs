@@ -1,6 +1,8 @@
 ﻿using Game.Events;
 using Game.Graphics;
 using Game.Patterns.Singleton;
+using Game.UserInterface;
+using Game.UserInterface.Scenes;
 
 namespace Game
 {
@@ -8,7 +10,10 @@ namespace Game
     {
         public static void Main(string[] args) {
             var queue = Singleton.Create<EventQueue>();
+            var ui = Singleton.Create<UIManager>();
             var graphics = Singleton.Create<GameWindow>();
+
+            ui.LoadScene<MainMenu>();
 
             // Placeholder for actual graphics.
             queue.AddEvent(PriorityTypes.GRAPHICS, () => {
@@ -23,3 +28,4 @@ namespace Game
         }
     }
 }
+    
