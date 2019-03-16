@@ -63,6 +63,14 @@
     <Compile Include="Events\GameEvent.cs" />
     <Compile Include="Events\EventQueue.cs" />
     <Compile Include="Events\PriorityTypes.cs" />
+    <Compile Include="Graphics\Content\FontManager.cs" />
+    <Compile Include="Graphics\Content\TextureManager.cs" />
+    <Compile Include="Graphics\Contexts\SurfaceContext.cs" />
+    <Compile Include="Graphics\Contexts\TextContext.cs" />
+    <Compile Include="Graphics\GameWindow.cs" />
+    <Compile Include="Graphics\IDrawableObject.cs" />
+    <Compile Include="Graphics\IDrawableSurface.cs" />
+    <Compile Include="Models\Foo.cs" />
     <Compile Include="Patterns\Singleton\Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +79,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Graphics\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$()*" "C:\Dev\Deploy\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
