@@ -1,4 +1,6 @@
 ﻿using Game.Patterns.Singleton;
+using Game.UserInterface;
+using Game.UserInterface.Scenes;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -26,8 +28,9 @@ namespace Game.Events
         public void Run() {
             int tick;
             int lastTick = Environment.TickCount;
+            var ui = Singleton.Get<UIManager>();
 
-            while (true) {
+            while (ui._currentSceneID != typeof(Closing)) {
                 tick = Environment.TickCount;
                 int dif = tick - lastTick;
                 lastTick = tick;
