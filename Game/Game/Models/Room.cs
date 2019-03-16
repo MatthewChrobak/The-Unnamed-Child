@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Game.Graphics;
 using Game.Graphics.Contexts;
 using Game.Models.Entities;
@@ -12,6 +13,7 @@ namespace Game.Models
 
         private SurfaceContext _ctx;
         private string BackgroundImage;
+        private List<Items> Items;
 
         public Room(string backgroundImage) {
             this.BackgroundImage = backgroundImage;

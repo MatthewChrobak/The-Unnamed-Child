@@ -71,6 +71,11 @@
     <Compile Include="Graphics\GameWindow.cs" />
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
+    <Compile Include="Models\Entities\ConcreteItems\Apron.cs" />
+    <Compile Include="Models\Entities\ConcreteItems\Cloth.cs" />
+    <Compile Include="Models\Entities\ConcreteItems\PillowCase.cs" />
+    <Compile Include="Models\Entities\ConcreteItems\Stone.cs" />
+    <Compile Include="Models\Entities\Items.cs" />
     <Compile Include="Models\Entities\Player.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Patterns\Singleton\Singleton.cs" />

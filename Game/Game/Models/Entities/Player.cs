@@ -20,7 +20,7 @@ namespace Game.Models.Entities
 
         public void Draw(IDrawableSurface surface) {
             this._ctx.Position = (this.X, GameWindow.WINDOW_HEIGHT - 250);
-            surface.Draw("graphics/player.png", this._ctx);
+            surface.Draw("graphics/testStoneImages.jpg", this._ctx);
         }
 
         public void HandleMove(JoystickAxis axis, float position) {

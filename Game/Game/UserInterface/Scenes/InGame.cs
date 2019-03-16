@@ -1,6 +1,7 @@
 ﻿using Game.Graphics;
 using Game.Models;
 using Game.Models.Entities;
+using Game.Models.Entities.ConcreteItems;
 using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
 
@@ -26,6 +27,8 @@ namespace Game.UserInterface.Scenes
         public override void Draw(IDrawableSurface surface) {
             Room.CurrentRoom.Draw(surface);
             Player.CurrentPlayer.Draw(surface);
+            Stone s = new Stone();
+            s.Draw(surface);
             base.Draw(surface);
         }
 
