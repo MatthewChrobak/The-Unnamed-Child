@@ -2,6 +2,7 @@
 {
     public enum EVENT_RETURN
     {
-        NONE
+        NONE,
+        REMOVE_FROM_QUEUE
     }
 }

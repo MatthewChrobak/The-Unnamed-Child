@@ -1,5 +1,6 @@
 ﻿using Game.Events;
 using Game.Graphics;
+using Game.Models;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
 using Game.UserInterface.Scenes;
@@ -12,6 +13,7 @@ namespace Game
     {
         public static void Main(string[] args) {
             var queue = Singleton.Create<EventQueue>();
+            var data = Singleton.Create<DataManager>();
             var ui = Singleton.Create<UIManager>();
             var graphics = Singleton.Create<GameWindow>();
 
