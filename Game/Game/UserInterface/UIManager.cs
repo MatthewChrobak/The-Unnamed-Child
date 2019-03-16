@@ -1,5 +1,6 @@
 ﻿using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
+using SFML.Window;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace Game.UserInterface
     public class UIManager : Singleton
     {
         private Dictionary<Type, Scene> _scenes;
-        private Type _currentSceneID;
+        public Type _currentSceneID { get; private set; }
         public Scene CurrentScene => _scenes[_currentSceneID];
 
         public UIManager() {
@@ -21,6 +22,10 @@ namespace Game.UserInterface
             }
             this._currentSceneID = typeof(T);
             return _scenes[typeof(T)];
+        }
+
+        public void JoystickButtonPressed(object sender, JoystickButtonEventArgs e) {
+            CurrentScene.OnJoystickButtonPressed((JoystickButton)e.Button);
         }
     }
 }

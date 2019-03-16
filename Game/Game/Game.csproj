@@ -78,6 +78,9 @@
     <Compile Include="UserInterface\Components\Container.cs" />
     <Compile Include="UserInterface\Components\Scene.cs" />
     <Compile Include="UserInterface\Components\UIElement.cs" />
+    <Compile Include="UserInterface\JoystickButtons.cs" />
+    <Compile Include="UserInterface\Scenes\Closing.cs" />
+    <Compile Include="UserInterface\Scenes\GameScene.cs" />
     <Compile Include="UserInterface\Scenes\MainMenu.cs" />
     <Compile Include="UserInterface\UIManager.cs" />
   </ItemGroup>

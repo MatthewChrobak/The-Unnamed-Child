@@ -22,6 +22,9 @@ namespace Game.Graphics
             _fonts = new FontManager();
 
             // TODO: Hookup ui event handlers.
+            var ui = Singleton.Get<UIManager>();
+
+            _buffer.JoystickButtonPressed += ui.JoystickButtonPressed;
         }
 
         public void Draw() {

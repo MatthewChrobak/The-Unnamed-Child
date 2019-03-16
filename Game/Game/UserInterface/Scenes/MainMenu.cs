@@ -1,4 +1,5 @@
 ﻿using Game.Graphics.Contexts;
+using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
 using SFML.Graphics;
 
@@ -24,8 +25,26 @@ namespace Game.UserInterface.Scenes
                     FontColor = Color.White,
                     HorizontalCenter_Width = width,
                     VerticalCenter_Height = height
+                },
+                OnJoystickButtonPressed = (button) => {
+                    if (button == JoystickButton.A) {
+                        Singleton.Get<UIManager>().LoadScene<GameScene>();
+                    }
                 }
             });
+
+            this.OnJoystickButtonPressed += (button) => {
+                foreach (var child in this.Children) {
+                    if (child.OnJoystickButtonPressed != null) {
+                        child.OnJoystickButtonPressed(button);
+                        break;
+                    }
+                }
+
+                if (button == JoystickButton.Back) {
+                    Singleton.Get<UIManager>().LoadScene<Closing>();
+                }
+            };
         }
     }
 }

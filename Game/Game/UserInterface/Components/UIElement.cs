@@ -1,4 +1,5 @@
 ﻿using Game.Graphics;
+using System;
 
 namespace Game.UserInterface.Components
 {
@@ -7,5 +8,8 @@ namespace Game.UserInterface.Components
         public abstract void Draw(IDrawableSurface surface);
 
         public (float x, float y) Position;
+
+
+        public Action<JoystickButton> OnJoystickButtonPressed;
     }
 }
