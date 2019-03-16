@@ -43,12 +43,6 @@ namespace Game
                 return EVENT_RETURN.NONE;
             }, 16, 0);
 
-            float width, height;
-            width = GameWindow.WINDOW_WIDTH;
-            height = GameWindow.WINDOW_HEIGHT;
-            float mult = 1;
-
-
             queue.Run();
         }
     }
