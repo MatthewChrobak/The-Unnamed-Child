@@ -1,4 +1,5 @@
 ﻿using Game.Graphics;
+using SFML.Window;
 using System;
 
 namespace Game.UserInterface.Components
@@ -11,5 +12,10 @@ namespace Game.UserInterface.Components
 
 
         public Action<JoystickButton> OnJoystickButtonPressed;
+
+
+        public virtual void OnJoystickMoved(Joystick.Axis axis, float position) {
+
+        }
     }
 }

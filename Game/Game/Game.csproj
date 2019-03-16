@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{57B87985-127E-4CFE-9CB2-1A8F97974924}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Game</RootNamespace>
     <AssemblyName>Game</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -70,7 +70,8 @@
     <Compile Include="Graphics\GameWindow.cs" />
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
-    <Compile Include="Models\Foo.cs" />
+    <Compile Include="Models\Entities\Player.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Patterns\Singleton\Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="UserInterface\Components\UIElement.cs" />
     <Compile Include="UserInterface\JoystickButtons.cs" />
     <Compile Include="UserInterface\Scenes\Closing.cs" />
-    <Compile Include="UserInterface\Scenes\GameScene.cs" />
+    <Compile Include="UserInterface\Scenes\InGame.cs" />
     <Compile Include="UserInterface\Scenes\MainMenu.cs" />
     <Compile Include="UserInterface\UIManager.cs" />
   </ItemGroup>

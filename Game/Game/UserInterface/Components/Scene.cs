@@ -1,4 +1,6 @@
-﻿namespace Game.UserInterface.Components
+﻿using SFML.Window;
+
+namespace Game.UserInterface.Components
 {
     public class Scene : Container
     {
@@ -11,6 +13,12 @@
                     }
                 }
             };
+        }
+
+        public override void OnJoystickMoved(Joystick.Axis axis, float position) {
+            foreach (var element in this.Children) {
+                element.OnJoystickMoved(axis, position);
+            }
         }
     }
 }

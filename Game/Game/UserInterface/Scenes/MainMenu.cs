@@ -5,7 +5,7 @@ using SFML.Graphics;
 
 namespace Game.UserInterface.Scenes
 {
-    public class MainMenu : Scene             
+    public class MainMenu : Scene
     {
         public MainMenu() {
             int x = 300;
@@ -28,7 +28,7 @@ namespace Game.UserInterface.Scenes
                 },
                 OnJoystickButtonPressed = (button) => {
                     if (button == JoystickButton.A) {
-                        Singleton.Get<UIManager>().LoadScene<GameScene>();
+                        Singleton.Get<UIManager>().LoadScene<InGame>();
                     }
                 }
             });
