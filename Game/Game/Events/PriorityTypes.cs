@@ -4,6 +4,7 @@
     {
         START,
         GRAPHICS,
+        SOUNDS,
         END
     }
 }
