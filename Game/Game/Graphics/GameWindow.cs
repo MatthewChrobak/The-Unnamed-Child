@@ -1,11 +1,10 @@
-﻿using Game.Graphics.Content;
+﻿using Game.Graphics.Cameras;
+using Game.Graphics.Content;
 using Game.Graphics.Contexts;
-using Game.Models;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
 using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 namespace Game.Graphics
 {
@@ -14,28 +13,29 @@ namespace Game.Graphics
         private RenderWindow _buffer;
         private TextureManager _textures;
         private FontManager _fonts;
+        public Camera Camera { get; private set; }
 
         public const int WINDOW_WIDTH = 1980 / 2;
         public const int WINDOW_HEIGHT = 1080 / 2;
 
         public GameWindow() {
+            this.Camera = new Camera(0, 0);
             this._buffer = new RenderWindow(new SFML.Window.VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Nameless Child");
             this._buffer.SetVisible(true);
 
             _textures = new TextureManager();
             _fonts = new FontManager();
 
-            // TODO: Hookup ui event handlers.
             var ui = Singleton.Get<UIManager>();
 
             _buffer.JoystickButtonPressed += ui.JoystickButtonPressed;
-            _buffer.JoystickMoved += ui.JoystickMoved;
         }
 
         public void Draw() {
-            this._buffer.Clear(Color.Blue);
-            Joystick.Update();
+            this._buffer.Clear(Color.Black);
             this._buffer.DispatchEvents();
+
+            this._buffer.SetView(this.Camera.GetView());
 
             Get<UIManager>().CurrentScene.Draw(this);
 

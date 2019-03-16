@@ -1,5 +1,8 @@
-﻿using Game.Graphics;
+﻿using System;
+using Game.Graphics;
 using Game.Graphics.Contexts;
+using Game.Models.Entities;
+using Game.UserInterface;
 
 namespace Game.Models
 {
@@ -13,13 +16,22 @@ namespace Game.Models
         public Room(string backgroundImage) {
             this.BackgroundImage = backgroundImage;
             this._ctx = new SurfaceContext() {
-                Position = (0, 0),
-                Size = (GameWindow.WINDOW_WIDTH, GameWindow.WINDOW_HEIGHT)
+                Position = (50, 50),
+                Size = (GameWindow.WINDOW_WIDTH - 100, GameWindow.WINDOW_HEIGHT - 100)
             };
         }
 
         public void Draw(IDrawableSurface surface) {
             surface.Draw(this.BackgroundImage, this._ctx);
+        }
+
+        public void HandleJoystickMoved(uint joystickID, JoystickAxis axis, float position) {
+            switch (axis) {
+                case JoystickAxis.X:
+                case JoystickAxis.Y:
+                    Player.CurrentPlayer.HandleMove(axis, position);
+                    break;
+            }
         }
     }
 }

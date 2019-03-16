@@ -3,6 +3,8 @@ using Game.Graphics;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
 using Game.UserInterface.Scenes;
+using SFML.Window;
+using System;
 
 namespace Game
 {
@@ -22,10 +24,32 @@ namespace Game
 
                 return EVENT_RETURN.NONE;
             }, 16, 0);
+            queue.AddEvent(PriorityTypes.INPUT, () => {
+
+                Joystick.Update();
+                var scene = Singleton.Get<UIManager>().CurrentScene;
+
+                for (uint i = 0; i < 1; i++) {
+                    if (Joystick.IsConnected(i)) {
+                        for (uint ii = 0; ii < (uint)JoystickAxis.LENGTH; ii++) {
+                            float position = Joystick.GetAxisPosition(i, (Joystick.Axis)ii);
+                            if (Math.Abs(position) >= 5) {
+                                scene.JoystickMoved(i, (JoystickAxis)ii, position);
+                            }
+                        }
+                    }
+                }
+
+                return EVENT_RETURN.NONE;
+            }, 16, 0);
+
+            float width, height;
+            width = GameWindow.WINDOW_WIDTH;
+            height = GameWindow.WINDOW_HEIGHT;
+            float mult = 1;
 
 
             queue.Run();
         }
     }
 }
-    

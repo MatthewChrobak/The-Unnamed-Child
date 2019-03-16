@@ -3,7 +3,6 @@ using Game.Models;
 using Game.Models.Entities;
 using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
-using SFML.Window;
 
 namespace Game.UserInterface.Scenes
 {
@@ -30,11 +29,12 @@ namespace Game.UserInterface.Scenes
             base.Draw(surface);
         }
 
-        public override void OnJoystickMoved(Joystick.Axis axis, float position) {
-            base.OnJoystickMoved(axis, position);
-
-            if (axis == Joystick.Axis.X) {
-                Player.CurrentPlayer.Move(position);
+        public override void JoystickMoved(uint joystickID, JoystickAxis axis, float position) {
+            switch (axis) {
+                case JoystickAxis.X:
+                case JoystickAxis.Y:
+                    Room.CurrentRoom.HandleJoystickMoved(joystickID, axis, position);
+                    break;
             }
         }
     }

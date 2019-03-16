@@ -27,9 +27,5 @@ namespace Game.UserInterface
         public void JoystickButtonPressed(object sender, JoystickButtonEventArgs e) {
             CurrentScene.OnJoystickButtonPressed((JoystickButton)e.Button);
         }
-
-        public void JoystickMoved(object sender, JoystickMoveEventArgs e) {
-            CurrentScene.OnJoystickMoved(e.Axis, e.Position);
-        }
     }
 }

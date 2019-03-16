@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.Graphics;
 using Game.Graphics.Contexts;
+using Game.UserInterface;
 
 namespace Game.Models.Entities
 {
@@ -22,8 +23,10 @@ namespace Game.Models.Entities
             surface.Draw("graphics/player.png", this._ctx);
         }
 
-        public void Move(float position) {
-            this.X += position/4;
+        public void HandleMove(JoystickAxis axis, float position) {
+            if (axis == JoystickAxis.X) {
+                this.X += position / 4;
+            }
         }
     }
 }
