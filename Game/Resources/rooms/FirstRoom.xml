@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<FirstRoom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BackgroundImage>graphics/firstroom.png</BackgroundImage>
+  <Size>
+    <Item1>990</Item1>
+    <Item2>540</Item2>
+  </Size>
+  <Player_Y_Height>315</Player_Y_Height>
+  <Bounds>
+    <Item1>120</Item1>
+    <Item2>590</Item2>
+  </Bounds>
+</FirstRoom>

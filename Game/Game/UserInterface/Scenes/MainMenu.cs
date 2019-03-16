@@ -1,4 +1,5 @@
 ﻿using Game.Graphics.Contexts;
+using Game.Models;
 using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
 using SFML.Graphics;
@@ -28,19 +29,13 @@ namespace Game.UserInterface.Scenes
                 },
                 OnJoystickButtonPressed = (button) => {
                     if (button == JoystickButton.A) {
+                        Singleton.Get<DataManager>().LoadRoom("FirstRoom");
                         Singleton.Get<UIManager>().LoadScene<InGame>();
                     }
                 }
             });
 
             this.OnJoystickButtonPressed += (button) => {
-                foreach (var child in this.Children) {
-                    if (child.OnJoystickButtonPressed != null) {
-                        child.OnJoystickButtonPressed(button);
-                        break;
-                    }
-                }
-
                 if (button == JoystickButton.Back) {
                     Singleton.Get<UIManager>().LoadScene<Closing>();
                 }

@@ -32,7 +32,7 @@ namespace Game.Graphics
         }
 
         public void Draw() {
-            this._buffer.Clear(Color.Black);
+            this._buffer.Clear(Color.White);
             this._buffer.DispatchEvents();
 
             this._buffer.SetView(this.Camera.GetView());
@@ -43,6 +43,11 @@ namespace Game.Graphics
         }
 
         public void Draw(string SurfaceName, SurfaceContext ctx) {
+
+            if (string.IsNullOrEmpty(SurfaceName)) {
+                return;
+            }
+
             var sprite = _textures.Get(SurfaceName);
 
             sprite.Position = new Vector2f(ctx.Position.x, ctx.Position.y);
