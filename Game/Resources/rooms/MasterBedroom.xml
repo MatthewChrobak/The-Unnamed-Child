@@ -54,8 +54,8 @@
         <Item2>70</Item2>
       </Size>
       <RoomName>BoilerRoom</RoomName>
-      <PlayerX>0</PlayerX>
-      <PlayerY>0</PlayerY>
+      <PlayerX>20</PlayerX>
+      <PlayerY>315</PlayerY>
     </CollisionObject>
   </Objects>
   <Bounds>
