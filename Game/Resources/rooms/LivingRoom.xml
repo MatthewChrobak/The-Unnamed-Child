@@ -6,6 +6,73 @@
     <Item2>540</Item2>
   </Size>
   <Player_Y_Height>280</Player_Y_Height>
+  <Objects>
+    <CollisionObject xsi:type="Door">
+      <ItemID>0</ItemID>
+      <Position>
+        <Item1>0</Item1>
+        <Item2>143</Item2>
+      </Position>
+      <Size>
+        <Item1>100</Item1>
+        <Item2>372</Item2>
+      </Size>
+      <SurfaceName></SurfaceName>
+      <RoomName>MasterBedroom</RoomName>
+      <PlayerX>800</PlayerX>
+      <PlayerY>315</PlayerY>
+    </CollisionObject>
+    <CollisionObject xsi:type="Umbrella">
+      <ItemID>1</ItemID>
+      <Position>
+        <Item1>744</Item1>
+        <Item2>226</Item2>
+      </Position>
+      <Size>
+        <Item1>117</Item1>
+        <Item2>51</Item2>
+      </Size>
+      <SurfaceName>graphics/umbrella.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="Crack">
+      <ItemID>2</ItemID>
+      <Position>
+        <Item1>140</Item1>
+        <Item2>290</Item2>
+      </Position>
+      <Size>
+        <Item1>117</Item1>
+        <Item2>51</Item2>
+      </Size>
+      <SurfaceName>graphics/crack 1.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="Birds">
+      <ItemID>3</ItemID>
+      <Position>
+        <Item1>325</Item1>
+        <Item2>290</Item2>
+      </Position>
+      <Size>
+        <Item1>117</Item1>
+        <Item2>51</Item2>
+      </Size>
+    </CollisionObject>
+    <CollisionObject xsi:type="CeilingExit">
+      <ItemID>4</ItemID>
+      <Position>
+        <Item1>398</Item1>
+        <Item2>280</Item2>
+      </Position>
+      <Size>
+        <Item1>100</Item1>
+        <Item2>100</Item2>
+      </Size>
+      <SurfaceName></SurfaceName>
+      <RoomName>Kitchen</RoomName>
+      <PlayerX>800</PlayerX>
+      <PlayerY>315</PlayerY>
+    </CollisionObject>
+  </Objects>
   <Bounds>
     <Item1>50</Item1>
     <Item2>875</Item2>

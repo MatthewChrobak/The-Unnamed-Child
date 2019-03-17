@@ -34,7 +34,7 @@ namespace Game.Models.Rooms
     [XmlInclude(typeof(Umbrella))]
     [XmlInclude(typeof(Crack))]
     [XmlInclude(typeof(Birds))]
-
+    [XmlInclude(typeof(CeilingExit))]
     [Serializable]
     public abstract class Room : IDrawableObject
     {

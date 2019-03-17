@@ -6,68 +6,9 @@
     <Item2>540</Item2>
   </Size>
   <Player_Y_Height>300</Player_Y_Height>
-  <Objects>
-    <CollisionObject xsi:type="Apron">
-      <ItemID>0</ItemID>
-      <Position>
-        <Item1>190</Item1>
-        <Item2>0</Item2>
-      </Position>
-      <Size>
-        <Item1>175</Item1>
-        <Item2>425</Item2>
-      </Size>
-      <SurfaceName>graphics/apron.png</SurfaceName>
-    </CollisionObject>
-    <CollisionObject xsi:type="Cleaver">
-      <ItemID>1</ItemID>
-      <Position>
-        <Item1>290</Item1>
-        <Item2>-28</Item2>
-      </Position>
-      <Size>
-        <Item1>175</Item1>
-        <Item2>425</Item2>
-      </Size>
-      <SurfaceName>graphics/cleaver.png</SurfaceName>
-    </CollisionObject>
-    <CollisionObject xsi:type="Broom">
-      <ItemID>2</ItemID>
-      <Position>
-        <Item1>40</Item1>
-        <Item2>250</Item2>
-      </Position>
-      <Size>
-        <Item1>175</Item1>
-        <Item2>175</Item2>
-      </Size>
-      <SurfaceName>graphics/broom.png</SurfaceName>
-    </CollisionObject>
-    <CollisionObject xsi:type="Exit">
-      <ItemID>3</ItemID>
-      <Position>
-        <Item1>-50</Item1>
-        <Item2>300</Item2>
-      </Position>
-      <Size>
-        <Item1>100</Item1>
-        <Item2>175</Item2>
-      </Size>
-    </CollisionObject>
-    <CollisionObject xsi:type="GarbageCan">
-      <ItemID>4</ItemID>
-      <Position>
-        <Item1>725</Item1>
-        <Item2>300</Item2>
-      </Position>
-      <Size>
-        <Item1>100</Item1>
-        <Item2>175</Item2>
-      </Size>
-    </CollisionObject>
-  </Objects>
+  <Objects />
   <Bounds>
-    <Item1>-100</Item1>
+    <Item1>0</Item1>
     <Item2>650</Item2>
   </Bounds>
 </Kitchen>

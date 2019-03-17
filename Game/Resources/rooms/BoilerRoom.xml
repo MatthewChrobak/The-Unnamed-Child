@@ -46,7 +46,32 @@
         <Item1>100</Item1>
         <Item2>100</Item2>
       </Size>
+      <SurfaceName />
     </CollisionObject>
+    <CollisionObject xsi:type="Bucket">
+      <ItemID>3</ItemID>
+      <Position>
+        <Item1>740</Item1>
+        <Item2>320</Item2>
+      </Position>
+      <Size>
+        <Item1>140</Item1>
+        <Item2>140</Item2>
+      </Size>
+      <SurfaceName>graphics/bucket_unused.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="Boiler">
+      <ItemID>4</ItemID>
+      <Position>
+        <Item1>300</Item1>
+        <Item2>185</Item2>
+      </Position>
+      <Size>
+        <Item1>300</Item1>
+        <Item2>300</Item2>
+      </Size>
+    </CollisionObject>
+      <SurfaceName></SurfaceName>
   </Objects>
   <Bounds>
     <Item1>20</Item1>

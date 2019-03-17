@@ -25,7 +25,7 @@ namespace Game.Models.Entities
         public bool HasBucket;
         public bool isBucketFilled = false;
         //Needs to be modified
-        public bool HasBlanket = true;
+        public bool HasBlanket;
 
         public bool HasUmbrella;
 
