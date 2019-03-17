@@ -14,19 +14,20 @@ namespace Game.Models.Rooms.Objects
             if (base.Probe(x, y))
             {
                 var data = Singleton.Get<DataManager>();
+                var sound = Singleton.Get<SoundManager>();
 
                 if (!data.Player.HasBucket)
                 {
                     data.CurrentRoom.AddFloatingMessage("Interesting...", x - 115, y - 100, 2500);
                 }
-                if (data.Player.HasBucket)
+                if (data.Player.HasBucket && !data.Player.isBucketFilled)
                 {
                     data.CurrentRoom.AddFloatingMessage("What can I do with this bucket...", x - 115, y - 100, 2500);
                 }
 
                 data.Player.HasBucket = true;
 
-                var sound = Singleton.Get<SoundManager>();
+                data.CurrentRoom.Objects[this.ItemID] = null;
 
                 //TODO: add bucket sound
                 SoundBuffer bucket = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.saucepan));

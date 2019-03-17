@@ -14,6 +14,7 @@ namespace Game.Models.Rooms.Objects
             if (base.Probe(x, y))
             {
                 var data = Singleton.Get<DataManager>();
+                var sound = Singleton.Get<SoundManager>();
 
                 if (data.Player.HasStones) {
                     return true;
@@ -25,9 +26,6 @@ namespace Game.Models.Rooms.Objects
                     data.CurrentRoom.AddFloatingMessage("I can put these in my pillowcase!", x, y - 100, 2500);
                 }
                 data.Player.HasStones = true;
-
-
-                var sound = Singleton.Get<SoundManager>();
 
                 SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
                 Sound m = new Sound(pillowCaseSound);
