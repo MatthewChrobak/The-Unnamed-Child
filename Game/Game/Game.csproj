@@ -71,6 +71,8 @@
     <Compile Include="Graphics\GameWindow.cs" />
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
+    <Compile Include="Models\Rooms\Objects\Apron.cs" />
+    <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Entities\Player.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="Models\Rooms\LivingRoom.cs" />
     <Compile Include="Models\Rooms\Objects\CollisionObject.cs" />
     <Compile Include="Models\Rooms\Objects\Door.cs" />
+    <Compile Include="Models\Rooms\Objects\PillowCase.cs" />
+    <Compile Include="Models\Rooms\Objects\Stone.cs" />
     <Compile Include="Models\Rooms\Room.cs" />
     <Compile Include="Patterns\Singleton\Singleton.cs" />
     <Compile Include="Program.cs" />

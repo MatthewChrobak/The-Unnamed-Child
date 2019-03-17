@@ -11,6 +11,11 @@ using System.Xml.Serialization;
 namespace Game.Models.Rooms
 {
     [XmlInclude(typeof(Door))]
+    [XmlInclude(typeof(Stone))]
+    [XmlInclude(typeof(PillowCase))]
+    [XmlInclude(typeof(Cloth))]
+    [XmlInclude(typeof(Apron))]
+
     [Serializable]
     public abstract class Room : IDrawableObject
     {
