@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Kitchen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BackgroundImage>graphics/kitchen.png</BackgroundImage>
+  <Size>
+    <Item1>990</Item1>
+    <Item2>540</Item2>
+  </Size>
+  <Player_Y_Height>300</Player_Y_Height>
+  <Objects />
+  <Bounds>
+    <Item1>0</Item1>
+    <Item2>650</Item2>
+  </Bounds>
+</Kitchen>

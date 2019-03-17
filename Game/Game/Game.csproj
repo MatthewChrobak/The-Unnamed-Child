@@ -75,14 +75,12 @@
     <Compile Include="Graphics\IDrawableSurface.cs" />
     <Compile Include="Models\Entities\BabaYaga.cs" />
     <Compile Include="Models\Rooms\BoilerRoom.cs" />
+    <Compile Include="Models\Rooms\Kitchen.cs" />
     <Compile Include="Models\Rooms\MasterBedroom.cs" />
     <Compile Include="Models\Rooms\Objects\Apron.cs" />
-
     <Compile Include="Models\Rooms\Objects\Boiler.cs" />
     <Compile Include="Models\Rooms\Objects\Bucket.cs" />
-
     <Compile Include="Models\Rooms\Objects\Cabinet.cs" />
-
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />
     <Compile Include="Models\DataManager.cs" />

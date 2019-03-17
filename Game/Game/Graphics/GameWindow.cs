@@ -33,7 +33,7 @@ namespace Game.Graphics
         }
 
         public void Draw() {
-            this._buffer.Clear(Color.White);
+            this._buffer.Clear(Color.Black);
             this._buffer.DispatchEvents();
 
             this._buffer.SetView(this.Camera.GetView());
