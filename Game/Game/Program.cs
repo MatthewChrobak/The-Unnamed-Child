@@ -7,6 +7,9 @@ using Game.UserInterface.Scenes;
 using SFML.Window;
 using System;
 using Game.Sounds;
+using Game.Models.Rooms;
+using Game.Models.Entities;
+using SFML.Audio;
 
 namespace Game
 {
@@ -71,6 +74,27 @@ namespace Game
 
                 return EVENT_RETURN.NONE;
             }, 16, 0);
+
+
+            var rng = new Random();
+            bool spawning = false;
+            queue.AddEvent(PriorityTypes.INPUT, () => {
+
+            if (!spawning && data.CurrentRoom != null && data.CurrentRoom.GetType() != typeof(FirstRoom)) {
+                if (rng.Next(0, 100) < 15) {
+                        spawning = true;
+
+                        sound.PlaySound(sound.laughFemale);
+
+                        queue.AddEvent(PriorityTypes.INPUT, () => {
+                            BabaYaga.Summon();
+                            spawning = false;
+                            return EVENT_RETURN.REMOVE_FROM_QUEUE;
+                        }, 1, 10000);
+                    }
+                }
+                return EVENT_RETURN.NONE;
+            }, 1000, 0);
 
             queue.Run();
 

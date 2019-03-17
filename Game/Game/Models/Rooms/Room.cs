@@ -31,6 +31,9 @@ namespace Game.Models.Rooms
     [XmlInclude(typeof(Cleaver))]
     [XmlInclude(typeof(Exit))]
     [XmlInclude(typeof(Broom))]
+    [XmlInclude(typeof(Umbrella))]
+    [XmlInclude(typeof(Crack))]
+    [XmlInclude(typeof(Birds))]
 
     [Serializable]
     public abstract class Room : IDrawableObject

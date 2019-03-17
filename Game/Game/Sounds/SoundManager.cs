@@ -1,5 +1,6 @@
 ﻿using Game.Patterns.Singleton;
 using SFML.Audio;
+using System;
 using System.IO;
 using System.Timers;
 
@@ -61,6 +62,7 @@ namespace Game.Sounds
         public string windStrong = "/sounds/strong_wind.wav";
         public string windSoft = "/sounds/soft_wind_blowing.wav";
         public string windChimes = "/sounds/wind_chimes.wav";
+
         public string windChimesSoft = "/sounds/soft_windchimes.wav";
         public string chirpingBirds = "/sounds/bird_whistling.wav";
         public string crowCawing = "/sounds/crow_cawing_1.wav";
@@ -114,6 +116,13 @@ namespace Game.Sounds
             }
 
             soundInput.Play();
-        }   
+        }
+
+        public void PlaySound(string path) {
+            SoundBuffer buffer = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + path));
+            Sound sound = new Sound(buffer);
+
+            PlaySound(sound, 20f);
+        }
     }
 }

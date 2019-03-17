@@ -25,16 +25,19 @@ namespace Game.Models.Rooms.Objects
                 } else {
                     data.CurrentRoom.AddFloatingMessage("I can put these in my pillowcase!", x, y - 100, 2500);
                 }
+
+                if(data.Player.HasStones != true)
+                {
+                    data.Player.HasStones = true;
+
+                    SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
+                    Sound m = new Sound(pillowCaseSound);
+                    this.SurfaceName = "graphics/room1_used_trash.png";
+
+                    sound.PlaySound(m, 20f);
+                }
                 data.Player.HasStones = true;
-
-                SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
-                Sound m = new Sound(pillowCaseSound);
-                this.SurfaceName = "graphics/room1_used_trash.png";
-
-                sound.PlaySound(m, 20f);
-
-                sound.StopSound(m, 1000);
-                
+              
             }
             return true;
         }

@@ -2,6 +2,8 @@
 using Game.Graphics;
 using Game.Graphics.Contexts;
 using Game.Patterns.Singleton;
+using Game.UserInterface;
+using Game.UserInterface.Scenes;
 using System;
 
 namespace Game.Models.Entities
@@ -96,6 +98,7 @@ namespace Game.Models.Entities
 
                 //this._arm_pos.x -= deltaX / 4;
                 if (grabPlayer_Counter == 0) {
+                    Singleton.Get<UIManager>().LoadScene<GameOver>();
                     Singleton.Get<DataManager>().BabaYaga = null;
                     Singleton.Get<Globals>().DisableUserInput = false;
                     return EVENT_RETURN.REMOVE_FROM_QUEUE;
@@ -195,6 +198,7 @@ namespace Game.Models.Entities
 
                 //this._arm_pos.x -= deltaX / 4;
                 if (grabPlayer_Counter == 0) {
+                    Singleton.Get<UIManager>().LoadScene<GameOver>();
                     Singleton.Get<DataManager>().BabaYaga = null;
                     Singleton.Get<Globals>().DisableUserInput = false;
                     return EVENT_RETURN.REMOVE_FROM_QUEUE;

@@ -23,18 +23,22 @@ namespace Game.Models.Rooms.Objects
                 } else {
                     data.CurrentRoom.AddFloatingMessage("I can put my stones in here!", x, y - 100, 2500);
                 }
+
+                if(data.Player.HasPillowCase != true)
+                {
+                    var sound = Singleton.Get<SoundManager>();
+
+                    SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.pillowFluff));
+                    Sound m = new Sound(pillowCaseSound);
+                    this.SurfaceName = "graphics/room1_used_pillow.png";
+
+                    sound.PlaySound(m);
+
+                    sound.StopSound(m, 1000);
+                }
+
                 data.Player.HasPillowCase = true;
 
-
-                var sound = Singleton.Get<SoundManager>();
-
-                SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.pillowFluff));
-                Sound m = new Sound(pillowCaseSound);
-                this.SurfaceName = "graphics/apple2.png";
-
-                sound.PlaySound(m);
-
-                sound.StopSound(m, 1000);
             }
             return true;
         }
