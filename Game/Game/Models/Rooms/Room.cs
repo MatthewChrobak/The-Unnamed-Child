@@ -12,6 +12,7 @@ using System.Xml.Serialization;
 
 namespace Game.Models.Rooms
 {
+    [XmlInclude(typeof(FirstDoor))]
     [XmlInclude(typeof(Door))]
     [XmlInclude(typeof(Stone))]
     [XmlInclude(typeof(PillowCase))]
@@ -25,6 +26,7 @@ namespace Game.Models.Rooms
         public string BackgroundImage;
         public (float x, float y) Size;
         public float Player_Y_Height;
+        private int _last_message_added_time;
 
         public List<CollisionObject> Objects;
 
@@ -79,7 +81,9 @@ namespace Game.Models.Rooms
                 obj?.Draw(surface);
             }
 
-            foreach (var message in this._messages) {
+            for (int i = this._messages.Count - 1; i >= 0; i--) {
+                var message = this._messages[i];
+
                 if (message == null) {
                     continue;
                 }
@@ -125,6 +129,11 @@ namespace Game.Models.Rooms
         public void AddFloatingMessage(string str_message, float x, float y, int duration) {
             var queue = Singleton.Get<EventQueue>();
 
+            if (Environment.TickCount - _last_message_added_time < 1000) {
+                return;
+            }
+            this._last_message_added_time = Environment.TickCount;
+
             int count = duration / 100;
             int index = _messages.Count;
             for (int i = 0; i < _messages.Count; i++) {
@@ -133,7 +142,11 @@ namespace Game.Models.Rooms
                     break;
                 }
             }
-            _messages.Add((str_message, x, y));
+            if (index == _messages.Count) {
+                _messages.Add((str_message, x, y));
+            } else {
+                _messages[index] = ((str_message, x, y));
+            }
 
             queue.AddEvent(PriorityTypes.ANIMATION, () => {
                 var msg = _messages[index].Value;
@@ -159,7 +172,7 @@ namespace Game.Models.Rooms
         }
 
         public virtual float GetBabaYagaStartYConstant() {
-            return 0; 
+            return 0;
         }
     }
 }

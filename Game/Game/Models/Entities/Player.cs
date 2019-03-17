@@ -19,6 +19,9 @@ namespace Game.Models.Entities
         public float Width;
         public float Height;
 
+        public bool HasPillowCase;
+        public bool HasStones;
+
         public Player() {
             this._ctx = new SurfaceContext() {
                 Size = (175, 175)

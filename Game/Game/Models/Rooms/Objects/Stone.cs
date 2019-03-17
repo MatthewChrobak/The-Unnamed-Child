@@ -1,8 +1,8 @@
 ﻿using System;
-using Game.Graphics;
-using Game.Graphics.Contexts;
-using Game.Models.Rooms.Objects;
-using Game.UserInterface;
+using Game.Patterns.Singleton;
+using SFML.Audio;
+using Game.Sounds;
+using System.IO;
 
 namespace Game.Models.Rooms.Objects
 {
@@ -13,7 +13,30 @@ namespace Game.Models.Rooms.Objects
         {
             if (base.Probe(x, y))
             {
-                Console.WriteLine("Stone has been collided");
+                var data = Singleton.Get<DataManager>();
+
+                if (data.Player.HasStones) {
+                    return true;
+                }
+
+                if (!data.Player.HasPillowCase) {
+                    data.CurrentRoom.AddFloatingMessage("Maybe I can use these to break the door handle...", x, y - 100, 2500);
+                } else {
+                    data.CurrentRoom.AddFloatingMessage("I can put these in my pillowcase!", x, y - 100, 2500);
+                }
+                data.Player.HasStones = true;
+
+
+                var sound = Singleton.Get<SoundManager>();
+
+                SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
+                Sound m = new Sound(pillowCaseSound);
+                this.SurfaceName = "graphics/room1_used_trash.png";
+
+                sound.PlaySound(m, 20f);
+
+                sound.StopSound(m, 1000);
+                
             }
             return true;
         }

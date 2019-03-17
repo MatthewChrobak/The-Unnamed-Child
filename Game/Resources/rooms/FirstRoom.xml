@@ -7,20 +7,20 @@
   </Size>
   <Player_Y_Height>315</Player_Y_Height>
   <Objects>
-    <CollisionObject xsi:type="Door">
+    <CollisionObject xsi:type="FirstDoor">
       <ItemID>0</ItemID>
       <Position>
-        <Item1>-45</Item1>
+        <Item1>115</Item1>
         <Item2>143</Item2>
       </Position>
       <Size>
-        <Item1>390</Item1>
+        <Item1>100</Item1>
         <Item2>372</Item2>
       </Size>
       <SurfaceName>graphics/room1_unused_door.png</SurfaceName>
-      <RoomName>LivingRoom</RoomName>
-      <PlayerX>0</PlayerX>
-      <PlayerY>280</PlayerY>
+      <RoomName>BoilerRoom</RoomName>
+      <PlayerX>800</PlayerX>
+      <PlayerY>315</PlayerY>
     </CollisionObject>
     <CollisionObject xsi:type="Stone">
       <ItemID>1</ItemID>

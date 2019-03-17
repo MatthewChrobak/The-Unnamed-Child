@@ -74,6 +74,8 @@
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
     <Compile Include="Models\Entities\BabaYaga.cs" />
+    <Compile Include="Models\Rooms\BoilerRoom.cs" />
+    <Compile Include="Models\Rooms\MasterBedroom.cs" />
     <Compile Include="Models\Rooms\Objects\Apron.cs" />
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Models\Rooms\FirstRoom.cs" />
     <Compile Include="Models\Rooms\LivingRoom.cs" />
     <Compile Include="Models\Rooms\Objects\CollisionObject.cs" />
+    <Compile Include="Models\Rooms\Objects\FirstDoor.cs" />
     <Compile Include="Models\Rooms\Objects\Door.cs" />
     <Compile Include="Models\Rooms\Objects\PillowCase.cs" />
     <Compile Include="Models\Rooms\Objects\Stone.cs" />

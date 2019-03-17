@@ -1,6 +1,7 @@
 ﻿using Game.Patterns.Singleton;
 using SFML.Audio;
 using System.IO;
+using System.Timers;
 
 
 /*
@@ -14,6 +15,9 @@ namespace Game.Sounds
 {
     public class SoundManager: Singleton
     {
+
+        public static System.Timers.Timer aTimer;
+
         //Get current directory
         public string directory = Directory.GetCurrentDirectory();
 
@@ -58,38 +62,50 @@ namespace Game.Sounds
         public string rainModerate = "/sounds/moderate_rain.wav";
         public string rainSoftLong = "/sounds/soft_rain_long.wav";
         public string rainThunder = "/sounds/thunder_rain.wav";
+        public string pillowFluff = "/sounds/pillow_fluffing.wav";
+        public string stoneFall = "/sounds/stone_fall.wav";
 
         //Enemy - Minion - Monster
         public string laughFemale = "/sounds/female_evil_laugh.wav";
         public string laughEvilWhispered = "/sounds/evil_laugh_whispered.wav";
 
         //To play music
-        public void PlayMusic(string musicInput)
+        public string PlayMusic(string musicInput)
         {
-            Music music = new Music(directory + musicInput);
-            music.Play();
+            return directory + musicInput;
+        }
+
+        //Set a timer if necessary, to prevent early stop
+        public void StopSound(Sound sound, int interval = 0)
+        {
+            if (interval > 0)
+            {
+                aTimer = new System.Timers.Timer();
+                aTimer.Interval = interval;
+                aTimer.Elapsed += (o, e) => sound.Stop();
+                aTimer.Start();
+            }
+            else
+            {
+                sound.Stop();
+            }
         }
 
         //To play a sound
-        public void PlaySound(string soundInput, float volume = 0, float offset = 0f)
+        public void PlaySound(Sound soundInput, float volume = 0f, float offset = 0f)
         {
-            SoundBuffer newSound = new SoundBuffer(directory + soundInput);
-            Sound sound = new Sound(newSound);
-
             if(volume > 0)
             {
-                sound.Volume = volume;
+                soundInput.Volume = volume;
             }
 
             //Not working at the moment
             if(offset > 0)
             {
-                sound.PlayingOffset.AsSeconds();               
+                soundInput.PlayingOffset.AsSeconds();               
             }
 
-            sound.Play();
-        }
-        
-        
+            soundInput.Play();
+        }   
     }
 }

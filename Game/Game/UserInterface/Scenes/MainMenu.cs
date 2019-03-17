@@ -1,27 +1,44 @@
 ﻿using Game.Graphics.Contexts;
 using Game.Models;
 using Game.Patterns.Singleton;
+using Game.Sounds;
 using Game.UserInterface.Components;
+using SFML.Audio;
 using SFML.Graphics;
+using System;
+using System.IO;
 
 namespace Game.UserInterface.Scenes
 {
     public class MainMenu : Scene
     {
-        public MainMenu() {
+        public MainMenu()
+        {
             int x = 300;
             int y = 300;
             int width = 100;
             int height = 100;
-            this.AddChild(new Button() {
+            var sound = Singleton.Get<SoundManager>();
+
+            var music = new Music(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.mainTheme1Celeste));
+
+            music.Loop = true;
+
+            music.Play() ;
+
+
+            this.AddChild(new Button()
+            {
                 Position = (x, y),
                 Text = "Enter Game",
                 TextureName = "graphics/button.png",
-                ctxSurface = new SurfaceContext() {
+                ctxSurface = new SurfaceContext()
+                {
                     Position = (x, y),
                     Size = (width, height)
                 },
-                ctxText = new TextContext() {
+                ctxText = new TextContext()
+                {
                     Position = (x, y),
                     FontColor = Color.White,
                     HorizontalCenter_Width = width,
@@ -32,6 +49,7 @@ namespace Game.UserInterface.Scenes
                         return;
                     }
                     if (button == JoystickButton.A) {
+                        music.Stop();
                         Singleton.Get<DataManager>().NewGame();
                         Singleton.Get<UIManager>().LoadScene<InGame>();
                     }

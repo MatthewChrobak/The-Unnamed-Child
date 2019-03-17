@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<BoilerRoom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BackgroundImage>graphics/Room2_without_light.png</BackgroundImage>
+  <Size>
+    <Item1>990</Item1>
+    <Item2>540</Item2>
+  </Size>
+  <Player_Y_Height>315</Player_Y_Height>
+  <Objects>
+    <CollisionObject xsi:type="Door">
+      <ItemID>0</ItemID>
+      <Position>
+        <Item1>850</Item1>
+        <Item2>143</Item2>
+      </Position>
+      <Size>
+        <Item1>100</Item1>
+        <Item2>372</Item2>
+      </Size>
+      <SurfaceName></SurfaceName>
+      <RoomName>FirstRoom</RoomName>
+      <PlayerX>120</PlayerX>
+      <PlayerY>315</PlayerY>
+    </CollisionObject>
+    <CollisionObject xsi:type="Door">
+      <ItemID>1</ItemID>
+      <Position>
+        <Item1>-45</Item1>
+        <Item2>143</Item2>
+      </Position>
+      <Size>
+        <Item1>150</Item1>
+        <Item2>372</Item2>
+      </Size>
+      <SurfaceName>graphics/room1_unused_door.png</SurfaceName>
+      <RoomName>MasterBedroom</RoomName>
+      <PlayerX>800</PlayerX>
+      <PlayerY>315</PlayerY>
+    </CollisionObject>
+  </Objects>
+  <Bounds>
+    <Item1>0</Item1>
+    <Item2>800</Item2>
+  </Bounds>
+</BoilerRoom>

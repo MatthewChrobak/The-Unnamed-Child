@@ -12,7 +12,7 @@ namespace Game.Models.Rooms.Objects
         public (float x, float y) Position;
         public (float x, float y) Size;
 
-        private SurfaceContext _ctx;
+        protected SurfaceContext _ctx;
         public string SurfaceName;
 
         public virtual bool Probe(float x, float y) {

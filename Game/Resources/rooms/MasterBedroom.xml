@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<MasterBedroom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BackgroundImage>graphics/bedroomnicenice.png</BackgroundImage>
+  <Size>
+    <Item1>990</Item1>
+    <Item2>540</Item2>
+  </Size>
+  <Player_Y_Height>435</Player_Y_Height>
+  <Objects />
+  <Bounds>
+    <Item1>340</Item1>
+    <Item2>610</Item2>
+  </Bounds>
+</MasterBedroom>
