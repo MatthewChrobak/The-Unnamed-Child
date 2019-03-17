@@ -65,9 +65,21 @@
         <Item2>175</Item2>
       </Size>
     </CollisionObject>
+    <CollisionObject xsi:type="Exit">
+      <ItemID>5</ItemID>
+      <Position>
+        <Item1>0</Item1>
+        <Item2>200</Item2>
+      </Position>
+      <Size>
+        <Item1>102</Item1>
+        <Item2>200</Item2>
+      </Size>
+      <SurfaceName>graphics/Woodplanks.png</SurfaceName>
+    </CollisionObject>
   </Objects>
   <Bounds>
-    <Item1>-100</Item1>
+    <Item1>-60</Item1>
     <Item2>650</Item2>
   </Bounds>
 </Kitchen>
