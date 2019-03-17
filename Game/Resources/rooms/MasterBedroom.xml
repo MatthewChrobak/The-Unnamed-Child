@@ -1,12 +1,63 @@
 <?xml version="1.0"?>
 <MasterBedroom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BackgroundImage>graphics/bedroomnicenice.png</BackgroundImage>
+  <BackgroundImage>graphics/bedroom thank you.png</BackgroundImage>
   <Size>
     <Item1>990</Item1>
     <Item2>540</Item2>
   </Size>
   <Player_Y_Height>435</Player_Y_Height>
-  <Objects />
+  <Objects>
+    <CollisionObject xsi:type="MasterBed">
+      <ItemID>0</ItemID>
+      <Position>
+        <Item1>330</Item1>
+        <Item2>130</Item2>
+      </Position>
+      <Size>
+        <Item1>183</Item1>
+        <Item2>369</Item2>
+      </Size>
+      <SurfaceName>graphics/bedonly.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="MasterBedSheet">
+      <ItemID>1</ItemID>
+      <Position>
+        <Item1>330</Item1>
+        <Item2>130</Item2>
+      </Position>
+      <Size>
+        <Item1>183</Item1>
+        <Item2>369</Item2>
+      </Size>
+      <SurfaceName>graphics/bedsheets.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="Cabinet">
+      <ItemID>2</ItemID>
+      <Position>
+        <Item1>290</Item1>
+        <Item2>435</Item2>
+      </Position>
+      <Size>
+        <Item1>101</Item1>
+        <Item2>84</Item2>
+      </Size>
+      <SurfaceName>graphics/cabinet.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="Door">
+      <ItemID>3</ItemID>
+      <Position>
+        <Item1>640</Item1>
+        <Item2>435</Item2>
+      </Position>
+      <Size>
+        <Item1>40</Item1>
+        <Item2>70</Item2>
+      </Size>
+      <RoomName>BoilerRoom</RoomName>
+      <PlayerX>0</PlayerX>
+      <PlayerY>0</PlayerY>
+    </CollisionObject>
+  </Objects>
   <Bounds>
     <Item1>340</Item1>
     <Item2>610</Item2>

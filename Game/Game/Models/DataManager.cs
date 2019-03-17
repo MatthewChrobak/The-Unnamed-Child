@@ -23,7 +23,7 @@ namespace Game.Models
         public void NewGame() {
             Player = new Player();
             _cachedRooms.Clear();
-            LoadRoom("FirstRoom");
+            LoadRoom("MasterBedroom");
         }
 
         public void LoadRoom(string roomName) {

@@ -22,6 +22,17 @@ namespace Game.Models.Rooms
 
         }
 
+        public override float GetBabaYagaScalingConstant() {
+            return 1;
+        }
+
+        public override float GetBabaYagaStartXConstant() {
+            return 75;
+        }
+
+        public override float GetBabaYagaStartYConstant() {
+            return 200;
+        }
     }
 
 

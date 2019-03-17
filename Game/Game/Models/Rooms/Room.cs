@@ -18,6 +18,11 @@ namespace Game.Models.Rooms
     [XmlInclude(typeof(PillowCase))]
     [XmlInclude(typeof(Cloth))]
     [XmlInclude(typeof(Apron))]
+    [XmlInclude(typeof(GarbageCan))]
+    [XmlInclude(typeof(Faucet))]
+    [XmlInclude(typeof(Cabinet))]
+    [XmlInclude(typeof(MasterBed))]
+    [XmlInclude(typeof(MasterBedSheet))]
 
     [Serializable]
     public abstract class Room : IDrawableObject

@@ -45,8 +45,13 @@ namespace Game
             }, 50, 0);
             queue.AddEvent(PriorityTypes.INPUT, () => {
 
+                if (globals.DisableMovement) {
+                    return EVENT_RETURN.NONE;
+                }
+
                 Joystick.Update();
                 var scene = Singleton.Get<UIManager>().CurrentScene;
+
 
                 for (uint i = 0; i < 1; i++)
                 {

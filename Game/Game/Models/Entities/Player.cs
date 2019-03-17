@@ -22,6 +22,8 @@ namespace Game.Models.Entities
         public bool HasPillowCase;
         public bool HasStones;
 
+        public bool Hiding { get; internal set; }
+
         public Player() {
             this._ctx = new SurfaceContext() {
                 Size = (175, 175)

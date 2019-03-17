@@ -6,6 +6,7 @@ using Game.Models.Rooms;
 using Game.Models.Rooms.Objects;
 using Game.Patterns.Singleton;
 using Game.UserInterface.Components;
+using SFML.Graphics;
 using System;
 
 namespace Game.UserInterface.Scenes
@@ -107,6 +108,18 @@ namespace Game.UserInterface.Scenes
             data.Player.Draw(surface);
             data.BabaYaga?.Draw(surface);
             base.Draw(surface);
+
+            if (data.Player.Hiding) {
+                surface.Draw("graphics/fade.png", new Graphics.Contexts.SurfaceContext() {
+                    Size = (GameWindow.WINDOW_WIDTH, GameWindow.WINDOW_HEIGHT)
+                });
+                surface.Draw("You are hiding", new Graphics.Contexts.TextContext() {
+                    FontSize = 40,
+                    FontColor = Color.White,
+                    HorizontalCenter_Width = GameWindow.WINDOW_WIDTH,
+                    VerticalCenter_Height = GameWindow.WINDOW_HEIGHT
+                });
+            }
         }
 
         public override void JoystickMoved(uint joystickID, JoystickAxis axis, float position) {
