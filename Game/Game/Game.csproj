@@ -83,6 +83,7 @@
     <Compile Include="Models\Rooms\Objects\Broom.cs" />
     <Compile Include="Models\Rooms\Objects\Bucket.cs" />
     <Compile Include="Models\Rooms\Objects\Cabinet.cs" />
+    <Compile Include="Models\Rooms\Objects\CeilingExit.cs" />
     <Compile Include="Models\Rooms\Objects\Cleaver.cs" />
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />

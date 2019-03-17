@@ -42,7 +42,7 @@
       </Position>
       <Size>
         <Item1>200</Item1>
-        <Item2>100</Item2>
+        <Item2>200</Item2>
       </Size>
       <SurfaceName>graphics/room1_unused_pillowcase.png</SurfaceName>
     </CollisionObject>

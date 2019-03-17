@@ -22,7 +22,8 @@ namespace Game.Models.Rooms.Objects
                 if (!data.Player.TouchedCrack)
                 {
                     data.CurrentRoom.AddFloatingMessage("Whoa! What just happened..?", x, y - 100, 2500);
-
+                    data.Player.TouchedCrack = true;
+                    this.SurfaceName = "graphics/crack 2.png";
                     // Originally 875s
                     data.CurrentRoom.Bounds = (data.CurrentRoom.Bounds.lb, 300);
 
@@ -46,8 +47,6 @@ namespace Game.Models.Rooms.Objects
                         return EVENT_RETURN.NONE;
                     }, 100, 0);
 
-
-                    data.Player.TouchedCrack = true;
                     return true;
                 }
                 else
@@ -60,7 +59,7 @@ namespace Game.Models.Rooms.Objects
 
                 SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
                 Sound m = new Sound(pillowCaseSound);
-                this.SurfaceName = "graphics/crack 2.png";
+               
 
                 sound.PlaySound(m, 20f);
 

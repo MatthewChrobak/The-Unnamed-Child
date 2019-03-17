@@ -90,7 +90,7 @@ namespace Game
                             BabaYaga.Summon();
                             spawning = false;
                             return EVENT_RETURN.REMOVE_FROM_QUEUE;
-                        }, 1, 10000);
+                        }, 1, 7000);
                     }
                 }
                 return EVENT_RETURN.NONE;

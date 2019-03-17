@@ -40,9 +40,13 @@ namespace Game.Models.Rooms.Objects
                 }
 
                 this.Position.x += 10;
-                room.Objects[this.ItemID + 1].Position.x += 10;
                 this.RefreshContext();
-                room.Objects[this.ItemID + 1].RefreshContext();
+
+                if (room.Objects[this.ItemID + 1] != null)
+                {
+                    room.Objects[this.ItemID + 1].Position.x += 10;
+                    room.Objects[this.ItemID + 1].RefreshContext();
+                }
             }
 
             return true;
