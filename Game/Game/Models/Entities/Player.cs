@@ -23,6 +23,7 @@ namespace Game.Models.Entities
         public bool HasStones;
         public bool HasBucket;
         public bool isBucketFilled = false;
+        public bool hasClever = false;
 
         public bool Hiding;
 
