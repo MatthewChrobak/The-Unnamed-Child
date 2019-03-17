@@ -10,7 +10,7 @@ namespace Game.Models.Rooms
 
         public override void OnEnter() {
             var data = Singleton.Get<DataManager>();
-            data.Player.SetPos(0, this.Player_Y_Height);
+            data.Player.SetPos(50, this.Player_Y_Height);
             data.Player.SetSize(175 / 2, 175 / 2);
         }
 
