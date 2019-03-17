@@ -25,7 +25,7 @@ namespace Game.Models
             _cachedRooms.Clear();
             Singleton.Get<Globals>().DisableUserInput = false;
             Singleton.Get<Globals>().DisableMovement = false;
-            LoadRoom("Kitchen");
+            LoadRoom("FirstRoom");
         }
 
         public void LoadRoom(string roomName) {

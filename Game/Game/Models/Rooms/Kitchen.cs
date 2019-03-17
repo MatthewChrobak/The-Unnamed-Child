@@ -10,5 +10,21 @@ namespace Game.Models.Rooms
 
             player.SetSize(175, 175);
         }
+
+        public override float GetBabaYagaScalingConstant() {
+            return 1;
+        }
+
+        public override float GetBabaYagaStartXConstant() {
+            return 600;
+        }
+
+        public override float GetBabaYagaStartYConstant() {
+            return 180;
+        }
+
+        public override bool IsBabaYagaFlipped() {
+            return true;
+        }
     }
 }

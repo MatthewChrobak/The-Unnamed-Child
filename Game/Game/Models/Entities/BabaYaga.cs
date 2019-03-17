@@ -75,6 +75,7 @@ namespace Game.Models.Entities
 
         protected override void PerformSummonTasks() {
             var queue = Singleton.Get<EventQueue>();
+            var player = Singleton.Get<DataManager>().Player;
 
             (float target_x, float target_y) target;
             float requiredXDistance = 0;
@@ -103,15 +104,13 @@ namespace Game.Models.Entities
                 }
             };
 
-            int waitForPlayer_Counter = 10;
+            int waitForPlayer_Counter = 20;
             Func<EVENT_RETURN> waitForPlayer = () => {
                 waitForPlayer_Counter--;
 
-                // TODO: Cond for player.
-                if (true) {
+                if (!player.Hiding) {
                     queue.AddEvent(PriorityTypes.ANIMATION, grabPlayer, 25, 0);
                     Singleton.Get<Globals>().DisableUserInput = true;
-                    var player = Singleton.Get<DataManager>().Player;
                     target = (player.X + player.Width / 2, player.Y + player.Height / 2 - player.Width);
                     requiredXDistance = (target.target_x - _body_pos.x);
                     deltaX = requiredXDistance / grabPlayer_Counter;
@@ -119,6 +118,7 @@ namespace Game.Models.Entities
                 }
 
                 if (waitForPlayer_Counter == 0) {
+                    Singleton.Get<DataManager>().BabaYaga = null;
                     return EVENT_RETURN.REMOVE_FROM_QUEUE;
                 } else {
                     return EVENT_RETURN.NONE;
@@ -144,11 +144,13 @@ namespace Game.Models.Entities
 
         public SimpleBabaYaga(float start_x, float start_y) {
 
+            this._scaling = Singleton.Get<DataManager>().CurrentRoom.GetBabaYagaScalingConstant();
+
             this._body_ctx = new SurfaceContext();
             this._arm_ctx = new SurfaceContext();
 
-            this._body_size = (300, 300);
-            this._arm_size = (1000 / 4, 700 / 4);
+            this._body_size = (300 / _scaling, 300 / _scaling);
+            this._arm_size = (1000 / (4 * _scaling), 700 / (4 * _scaling));
 
             this._body_pos = (start_x, start_y);
             this._arm_pos = (start_x - 80, start_y + (this._body_size.y / 8));
@@ -173,6 +175,7 @@ namespace Game.Models.Entities
 
         protected override void PerformSummonTasks() {
             var queue = Singleton.Get<EventQueue>();
+            var player = Singleton.Get<DataManager>().Player;
 
             (float target_x, float target_y) target;
             float requiredXDistance = 0;
@@ -200,15 +203,13 @@ namespace Game.Models.Entities
                 }
             };
 
-            int waitForPlayer_Counter = 10;
+            int waitForPlayer_Counter = 20;
             Func<EVENT_RETURN> waitForPlayer = () => {
                 waitForPlayer_Counter--;
 
-                // TODO: Cond for player.
-                if (true) {
+                if (!player.Hiding) {
                     queue.AddEvent(PriorityTypes.ANIMATION, grabPlayer, 25, 0);
                     Singleton.Get<Globals>().DisableUserInput = true;
-                    var player = Singleton.Get<DataManager>().Player;
                     target = (player.X + player.Width / 2, player.Y + player.Height / 2 - player.Width);
                     requiredXDistance = (target.target_x - _body_pos.x);
                     deltaX = requiredXDistance / grabPlayer_Counter;
@@ -216,6 +217,7 @@ namespace Game.Models.Entities
                 }
 
                 if (waitForPlayer_Counter == 0) {
+                    Singleton.Get<DataManager>().BabaYaga = null;
                     return EVENT_RETURN.REMOVE_FROM_QUEUE;
                 } else {
                     return EVENT_RETURN.NONE;

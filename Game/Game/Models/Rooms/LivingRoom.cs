@@ -17,5 +17,21 @@ namespace Game.Models.Rooms
         public override float AdjustSpeed(float position) {
             return base.AdjustSpeed(position) / 2;
         }
+
+        public override float GetBabaYagaScalingConstant() {
+            return 2;
+        }
+
+        public override float GetBabaYagaStartXConstant() {
+            return 50;
+        }
+
+        public override float GetBabaYagaStartYConstant() {
+            return 230;
+        }
+
+        public override bool IsBabaYagaFlipped() {
+            return false;
+        }
     }
 }
