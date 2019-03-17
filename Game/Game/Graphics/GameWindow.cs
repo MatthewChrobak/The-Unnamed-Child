@@ -5,6 +5,7 @@ using Game.Patterns.Singleton;
 using Game.UserInterface;
 using SFML.Graphics;
 using SFML.System;
+using System;
 
 namespace Game.Graphics
 {

@@ -13,5 +13,9 @@ namespace Game.Models.Rooms
             data.Player.SetPos(0, this.Player_Y_Height);
             data.Player.SetSize(100 / 2, 175 / 2);
         }
+
+        public override float AdjustSpeed(float position) {
+            return base.AdjustSpeed(position) / 2;
+        }
     }
 }
