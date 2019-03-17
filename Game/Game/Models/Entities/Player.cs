@@ -13,7 +13,6 @@ namespace Game.Models.Entities
         private SurfaceContext _ctx;
 
         private int _frame;
-        private int _frame_incrementer = 1;
         private int _last_moved;
         private int _dir = 1;
 
@@ -64,17 +63,9 @@ namespace Game.Models.Entities
 
         public void UpdateFrame() {
             if (Environment.TickCount - this._last_moved < 100) {
-
-                _frame += _frame_incrementer;
-                if (_frame == 6) {
-                    _frame_incrementer = -1;
-                }
-                if (_frame == 0) {
-                    _frame_incrementer = 1;
-                }
+                _frame = (_frame + 1) % 7;
             } else {
                 this._frame = 0;
-                _frame_incrementer = 1;
             }
         }
 

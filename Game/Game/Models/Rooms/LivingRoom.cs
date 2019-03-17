@@ -11,7 +11,7 @@ namespace Game.Models.Rooms
         public override void OnEnter() {
             var data = Singleton.Get<DataManager>();
             data.Player.SetPos(0, this.Player_Y_Height);
-            data.Player.SetSize(100 / 2, 175 / 2);
+            data.Player.SetSize(175 / 2, 175 / 2);
         }
 
         public override float AdjustSpeed(float position) {

@@ -1,13 +1,14 @@
 ﻿using Game.Graphics;
 using Game.Graphics.Contexts;
 using System;
-using System.Collections.Generic;
 
 namespace Game.Models.Rooms.Objects
 {
     [Serializable]
     public abstract class CollisionObject : IDrawableObject
     {
+        public int ItemID = 5;
+
         public (float x, float y) Position;
         public (float x, float y) Size;
 

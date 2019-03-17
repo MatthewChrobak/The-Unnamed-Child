@@ -74,8 +74,7 @@ namespace Game.UserInterface.Scenes
 
                             obj.HandleAdditionalParamsForCreation(cmd);
 
-                            obj.RefreshContext();
-                            room.Objects.Add(obj);
+                            room.AddCollisionObject(obj);
                             break;
                         }
                     }
@@ -83,8 +82,9 @@ namespace Game.UserInterface.Scenes
 #endif
 
                 if (button == JoystickButton.A) {
-                    foreach (var obj in room.Objects) {
-                        obj.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
+                    for (int i =0; i <room.Objects.Count; i++) {
+                        var obj = room.Objects[i];
+                        obj?.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
                     }
                 }
 

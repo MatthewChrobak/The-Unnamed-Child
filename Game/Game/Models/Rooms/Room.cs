@@ -26,6 +26,12 @@ namespace Game.Models.Rooms
 
         public List<CollisionObject> Objects;
 
+        public void AddCollisionObject(CollisionObject obj) {
+            obj.ItemID = Objects.Count;
+            obj.RefreshContext();
+            Objects.Add(obj);
+        }
+
         public (float lb, float ub) Bounds;
 
         static Room() {
@@ -64,7 +70,7 @@ namespace Game.Models.Rooms
             surface.Draw(this.BackgroundImage, this._ctx);
 
             foreach (var obj in this.Objects) {
-                obj.Draw(surface);
+                obj?.Draw(surface);
             }
         }
 

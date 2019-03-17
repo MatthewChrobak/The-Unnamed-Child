@@ -29,7 +29,7 @@ namespace Game.UserInterface.Scenes
                 },
                 OnJoystickButtonPressed = (button) => {
                     if (button == JoystickButton.A) {
-                        Singleton.Get<DataManager>().LoadRoom("FirstRoom");
+                        Singleton.Get<DataManager>().NewGame();
                         Singleton.Get<UIManager>().LoadScene<InGame>();
                     }
                 }

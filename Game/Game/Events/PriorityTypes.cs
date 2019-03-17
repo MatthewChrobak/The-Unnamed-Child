@@ -3,8 +3,8 @@
     public enum PriorityTypes
     {
         START,
-        INPUT,
         ANIMATION,
+        INPUT,
         CAMERA,
         GRAPHICS,
         END
