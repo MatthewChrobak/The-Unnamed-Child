@@ -17,7 +17,7 @@ namespace Game.Models.Rooms.Objects
                 var data = Singleton.Get<DataManager>();
                 var sound = Singleton.Get<SoundManager>();
 
-                if (data.Player.HasBucket)
+                if (data.Player.HasBucket && data.Player.isBucketFilled)
                 {
                     data.CurrentRoom.AddFloatingMessage("The boiler is working again...", x - 100, y - 100, 2500);
                     data.CurrentRoom.BackgroundImage = "graphics/Room2_with light.png";
@@ -27,7 +27,6 @@ namespace Game.Models.Rooms.Objects
                     Sound m = new Sound(boiler);
                     sound.PlaySound(m, 20f);
                     sound.StopSound(m, 2000);
-
                 }
                 else
                 {
