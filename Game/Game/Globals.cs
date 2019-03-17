@@ -5,5 +5,6 @@ namespace Game
     public class Globals : Singleton
     {
         public bool DisableUserInput = false;
+        public bool DisableMovement = false;
     }
 }
