@@ -47,6 +47,11 @@ namespace Game.Sounds
         public string footstepWood2 = "/sounds/footstep_soft_wood2.wav";
 
         //Environment
+        /*
+         * bucket sound
+         * boiler sound
+         * 
+        */
         public string clothShuffling = "/sounds/cloth_shuffling.wav";
         public string movingRock = "/sounds/rock_sliding.wav";
         public string woodenDoorOpen = "/sounds/creaking_door_opening.wav";
@@ -68,6 +73,9 @@ namespace Game.Sounds
         //Enemy - Minion - Monster
         public string laughFemale = "/sounds/female_evil_laugh.wav";
         public string laughEvilWhispered = "/sounds/evil_laugh_whispered.wav";
+
+        //Checking rather or not it is the first time the sound play
+        public bool isFirstTimeSound = true;
 
         //To play music
         public string PlayMusic(string musicInput)

@@ -21,6 +21,7 @@ namespace Game.Models.Entities
 
         public bool HasPillowCase;
         public bool HasStones;
+        public bool HasBucket;
 
         public bool Hiding;
 
