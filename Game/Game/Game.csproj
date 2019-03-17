@@ -87,7 +87,6 @@
     <Compile Include="UserInterface\Scenes\InGame.cs" />
     <Compile Include="UserInterface\Scenes\MainMenu.cs" />
     <Compile Include="UserInterface\UIManager.cs" />
-    <Compile Include="Sounds\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -22,14 +22,25 @@ namespace Game.Sounds
         //Get current directory
         public string directory = Directory.GetCurrentDirectory();
 
-        public string mainTheme = "";
+        //Music themes
+        public string mainTheme1Celeste = "/sounds/music/theme_1_unnamed_child_celeste.wav";
+        public string mainTheme2Slow = "/sounds/music/theme_2_unnamed_child_piano.wav";
+
+        //Random Piano Sounds
+        public string randomPianoSound1 = "/sounds/music/random_piano_sounds_1";
+        public string randomPianoSound2 = "/sounds/music/random_piano_sounds_2";
+        public string randomPianoSound3 = "/sounds/music/random_piano_sounds_3";
+        public string randomPianoSound4 = "/sounds/music/random_piano_sounds_4";
+        public string randomPianoSound5 = "/sounds/music/random_piano_sounds_5";
 
         //Character
         public string woodHitting = "/sounds/pebble_hit_wood.wav";
         public string keyPickup = "/sounds/keys_pickup.wav";
+        public string crushedBones = "/sounds/crushed_bones.wav";
+        public string crushedGuts = "/sounds/crushed_guts.wav";
 
         //FootSteps
-        public string footstepStoneFloor1 = "/sounds/footstep_stone_1.wav";
+        public string footstepStoneFloor1 = "/sounds/footstep_stone_1.wav";        
         public string footstepDirt1 = "/sounds/footstep_dirt_1.wav";
         public string footstepGrass1 = "/sounds/footstep_grass_1.wav";
         public string footstepGrass2 = "/sounds/footstep_grass_2.wav";
@@ -60,7 +71,7 @@ namespace Game.Sounds
         //To play music
         public void PlayMusic(string musicInput)
         {
-            Music music = new Music(musicInput);
+            Music music = new Music(directory + musicInput);
             music.Play();
         }
 

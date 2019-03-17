@@ -23,10 +23,10 @@ namespace Game
             //PlaySound or PlayMusic; the second parameter is optional and sets the volume
             queue.AddEvent(PriorityTypes.SOUNDS, () =>
             {
-                sound.PlaySound(sound.footstepGrass1, 15f);
+                sound.PlayMusic(sound.inGameTheme);
 
                 return EVENT_RETURN.NONE;
-            }, 1000, 0);
+            }, , 0);
 
 
             // Placeholder for actual graphics.
