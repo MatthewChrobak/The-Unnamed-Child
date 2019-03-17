@@ -94,11 +94,6 @@ namespace Game.UserInterface.Scenes
                         obj?.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
                     }
                 }
-
-                if (button == JoystickButton.X) {
-                    BabaYaga.Summon();
-                }
-
             };
         }
 

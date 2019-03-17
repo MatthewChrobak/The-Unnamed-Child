@@ -7,6 +7,7 @@ using Game.UserInterface.Scenes;
 using SFML.Window;
 using System;
 using Game.Sounds;
+using Game.Models.Rooms;
 
 namespace Game
 {
@@ -71,6 +72,14 @@ namespace Game
 
                 return EVENT_RETURN.NONE;
             }, 16, 0);
+
+            queue.AddEvent(PriorityTypes.INPUT, () => {
+
+                if (data.CurrentRoom.GetType() != typeof(FirstRoom)) {
+
+                }
+                return EVENT_RETURN.NONE;
+            }, 1000, 0);
 
             queue.Run();
 

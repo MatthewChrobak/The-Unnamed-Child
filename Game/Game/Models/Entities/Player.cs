@@ -20,12 +20,17 @@ namespace Game.Models.Entities
         public float Height;
 
         public bool HasPillowCase;
+        public bool TouchedCrack;
         public bool HasStones;
         public bool HasBucket;
         public bool isBucketFilled = false;
+        //Needs to be modified
+        public bool HasBlanket = true;
+
+        public bool HasUmbrella;
 
         public bool Hiding;
-
+        public bool ShooedBirds;
         public bool HasScrewDriver { get; internal set; }
         public bool HasApron { get; internal set; }
         public bool HasBroom { get; internal set; }
