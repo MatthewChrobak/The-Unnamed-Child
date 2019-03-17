@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FirstRoom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BackgroundImage>graphics/firstroom.png</BackgroundImage>
+  <BackgroundImage>graphics/room1_final.png</BackgroundImage>
   <Size>
     <Item1>990</Item1>
     <Item2>540</Item2>
@@ -9,21 +9,43 @@
   <Objects>
     <CollisionObject xsi:type="Door">
       <Position>
-        <Item1>120</Item1>
-        <Item2>315</Item2>
+        <Item1>-45</Item1>
+        <Item2>143</Item2>
       </Position>
       <Size>
-        <Item1>100</Item1>
-        <Item2>175</Item2>
+        <Item1>390</Item1>
+        <Item2>372</Item2>
       </Size>
-      <SurfaceName>graphics/door.png</SurfaceName>
+      <SurfaceName>graphics/room1_unused_door.png</SurfaceName>
       <RoomName>LivingRoom</RoomName>
       <PlayerX>0</PlayerX>
       <PlayerY>280</PlayerY>
     </CollisionObject>
+    <CollisionObject xsi:type="Stone">
+      <Position>
+        <Item1>266</Item1>
+        <Item2>290</Item2>
+      </Position>
+      <Size>
+        <Item1>257</Item1>
+        <Item2>250</Item2>
+      </Size>
+      <SurfaceName>graphics/room1_unused_stones.png</SurfaceName>
+    </CollisionObject>
+    <CollisionObject xsi:type="PillowCase">
+      <Position>
+        <Item1>675</Item1>
+        <Item2>350</Item2>
+      </Position>
+      <Size>
+        <Item1>138</Item1>
+        <Item2>130</Item2>
+      </Size>
+      <SurfaceName>graphics/room1_unused_pillowcase.png</SurfaceName>
+    </CollisionObject>
   </Objects>
   <Bounds>
     <Item1>120</Item1>
-    <Item2>590</Item2>
+    <Item2>610</Item2>
   </Bounds>
 </FirstRoom>
