@@ -23,11 +23,11 @@ namespace Game
             ui.LoadScene<MainMenu>();
 
             //PlaySound or PlayMusic; the second parameter is optional and sets the volume
-            queue.AddEvent(PriorityTypes.SOUNDS, () => {
-                sound.PlayMusic(sound.mainTheme1Celeste);
+            //queue.AddEvent(PriorityTypes.SOUNDS, () => {
+            //    sound.PlayMusic(sound.mainTheme1Celeste);
 
-                return EVENT_RETURN.NONE;
-            }, 1500, 0);
+            //    return EVENT_RETURN.NONE;
+            //}, 35000, 0);
 
 
             // Placeholder for actual graphics.

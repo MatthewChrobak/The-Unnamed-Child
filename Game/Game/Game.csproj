@@ -72,6 +72,8 @@
     <Compile Include="Graphics\GameWindow.cs" />
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
+    <Compile Include="Models\Rooms\BoilerRoom.cs" />
+    <Compile Include="Models\Rooms\MasterBedroom.cs" />
     <Compile Include="Models\Rooms\Objects\Apron.cs" />
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />

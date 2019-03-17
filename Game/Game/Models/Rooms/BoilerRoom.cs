@@ -2,21 +2,27 @@
 
 namespace Game.Models.Rooms
 {
-    public class FirstRoom : Room
+    public class BoilerRoom : Room
     {
-        public FirstRoom() {
+        public BoilerRoom()
+        {
             this.Player_Y_Height = 540 - 225;
         }
 
-        public override void OnEnter() {
+        public override void OnEnter()
+        {
             var data = Singleton.Get<DataManager>();
             //set size
-            data.Player.SetPos(575, this.Player_Y_Height);
+            data.Player.SetPos(2000, 0);
             data.Player.SetSize(175, 175);
         }
 
-        public override void OnLeave() {
+        public override void OnLeave()
+        {
 
         }
+
     }
+
+
 }

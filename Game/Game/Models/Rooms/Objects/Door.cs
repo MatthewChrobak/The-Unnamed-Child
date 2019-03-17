@@ -1,4 +1,5 @@
-﻿using Game.Patterns.Singleton;
+﻿using Game.Graphics;
+using Game.Patterns.Singleton;
 using System;
 
 namespace Game.Models.Rooms.Objects
