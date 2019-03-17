@@ -117,6 +117,7 @@
     <Compile Include="UserInterface\JoystickButtons.cs" />
     <Compile Include="UserInterface\Scenes\Closing.cs" />
     <Compile Include="UserInterface\Scenes\GameOver.cs" />
+    <Compile Include="UserInterface\Scenes\Credit.cs" />
     <Compile Include="UserInterface\Scenes\InGame.cs" />
     <Compile Include="UserInterface\Scenes\MainMenu.cs" />
     <Compile Include="UserInterface\UIManager.cs" />
