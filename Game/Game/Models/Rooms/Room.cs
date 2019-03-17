@@ -1,8 +1,10 @@
-﻿using Game.Graphics;
+﻿using Game.Events;
+using Game.Graphics;
 using Game.Graphics.Contexts;
 using Game.Models.Rooms.Objects;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
+using SFML.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +28,9 @@ namespace Game.Models.Rooms
 
         public List<CollisionObject> Objects;
 
+        [XmlIgnore]
+        private List<(string, float, float)?> _messages;
+
         public void AddCollisionObject(CollisionObject obj) {
             obj.ItemID = Objects.Count;
             obj.RefreshContext();
@@ -48,6 +53,7 @@ namespace Game.Models.Rooms
 
         public Room() {
             Objects = new List<CollisionObject>();
+            _messages = new List<(string, float, float)?>();
             Size = (GameWindow.WINDOW_WIDTH, GameWindow.WINDOW_HEIGHT);
             RefreshContext();
         }
@@ -71,6 +77,21 @@ namespace Game.Models.Rooms
 
             foreach (var obj in this.Objects) {
                 obj?.Draw(surface);
+            }
+
+            foreach (var message in this._messages) {
+                if (message == null) {
+                    continue;
+                }
+                var ctx = new TextContext() {
+                    FontColor = Color.White,
+                    HorizontalCenter_Width = 1,
+                    Position = (message.Value.Item2, message.Value.Item3),
+                    FontSize = 24,
+                    VerticalCenter_Height = 1,
+                    Border = (25f, new Color(50, 50, 50))
+                };
+                surface.Draw(message.Value.Item1, ctx);
             }
         }
 
@@ -99,6 +120,34 @@ namespace Game.Models.Rooms
             } else {
                 return (x, Player_Y_Height);
             }
+        }
+
+        public void AddFloatingMessage(string str_message, float x, float y, int duration) {
+            var queue = Singleton.Get<EventQueue>();
+
+            int count = duration / 100;
+            int index = _messages.Count;
+            for (int i = 0; i < _messages.Count; i++) {
+                if (_messages[i] == null) {
+                    index = i;
+                    break;
+                }
+            }
+            _messages.Add((str_message, x, y));
+
+            queue.AddEvent(PriorityTypes.ANIMATION, () => {
+                var msg = _messages[index].Value;
+                _messages[index] = (msg.Item1, msg.Item2, msg.Item3 - 1.5f);
+                count--;
+
+                if (count == 0) {
+                    _messages[index] = null;
+                    return EVENT_RETURN.REMOVE_FROM_QUEUE;
+                } else {
+                    return EVENT_RETURN.NONE;
+                }
+
+            }, 100, 0);
         }
     }
 }

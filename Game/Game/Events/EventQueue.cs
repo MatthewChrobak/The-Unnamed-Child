@@ -40,8 +40,13 @@ namespace Game.Events
                     continue;
                 }
                 for (int i = (int)PriorityTypes.START; i <= (int)PriorityTypes.END; i++) {
-                    foreach (var e in queue[i]) {
-                        e.Probe(dif);
+                    for (int ii = 0; ii < queue[i].Count; ii++) {
+                        var res = queue[i][ii].Probe(dif);
+
+                        if (res == EVENT_RETURN.REMOVE_FROM_QUEUE) {
+                            queue[i].RemoveAt(ii);
+                            ii--;
+                        }
                     }
                 }
 

@@ -80,6 +80,11 @@ namespace Game.Graphics
             text.FillColor = ctx.FontColor;
             text.CharacterSize = (uint)ctx.FontSize;
 
+            if (ctx.Border.HasValue) {
+                text.OutlineThickness = ctx.Border.Value.Item1;
+                text.OutlineColor = ctx.Border.Value.Item2;
+            }
+
             if (ctx.HorizontalCenter_Width.HasValue) {
                 float hw = ctx.HorizontalCenter_Width.Value;
 

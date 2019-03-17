@@ -7,7 +7,7 @@ namespace Game.Models.Rooms.Objects
     [Serializable]
     public abstract class CollisionObject : IDrawableObject
     {
-        public int ItemID = 5;
+        public int ItemID;
 
         public (float x, float y) Position;
         public (float x, float y) Size;

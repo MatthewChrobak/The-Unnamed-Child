@@ -12,5 +12,7 @@ namespace Game.Graphics.Contexts
 
         public float? HorizontalCenter_Width; // Optional
         public float? VerticalCenter_Height; // Optional
+
+        public (float, Color)? Border; // Optional
     }
 }

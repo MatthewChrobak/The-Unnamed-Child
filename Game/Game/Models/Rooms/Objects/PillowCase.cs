@@ -12,6 +12,8 @@ namespace Game.Models.Rooms.Objects
 
                 // Set = null to avoid
                 data.CurrentRoom.Objects[this.ItemID] = null;
+
+                data.CurrentRoom.AddFloatingMessage("You found a pillow case...", x, y - 100, 2500);
             }
             return true;
         }
