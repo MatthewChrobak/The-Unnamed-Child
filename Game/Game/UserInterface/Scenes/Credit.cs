@@ -12,6 +12,19 @@ namespace Game.UserInterface.Scenes
 {
     public class Credit : Scene
     {
+        public Credit()
+        {
+            this.OnJoystickButtonPressed += (button) => {
+                if (Singleton.Get<Globals>().DisableUserInput)
+                {
+                    return;
+                }
+                if (button == JoystickButton.Back)
+                {
+                    Singleton.Get<UIManager>().LoadScene<MainMenu>();
+                }
+            };
+        }
         public override void Draw(IDrawableSurface surface)
         {
             //TODO: draw the credit image
