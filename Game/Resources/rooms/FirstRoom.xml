@@ -8,6 +8,7 @@
   <Player_Y_Height>315</Player_Y_Height>
   <Objects>
     <CollisionObject xsi:type="Door">
+      <ItemID>0</ItemID>
       <Position>
         <Item1>-45</Item1>
         <Item2>143</Item2>
@@ -22,6 +23,7 @@
       <PlayerY>280</PlayerY>
     </CollisionObject>
     <CollisionObject xsi:type="Stone">
+      <ItemID>1</ItemID>
       <Position>
         <Item1>266</Item1>
         <Item2>290</Item2>
@@ -33,19 +35,20 @@
       <SurfaceName>graphics/room1_unused_stones.png</SurfaceName>
     </CollisionObject>
     <CollisionObject xsi:type="PillowCase">
+      <ItemID>2</ItemID>
       <Position>
-        <Item1>675</Item1>
-        <Item2>350</Item2>
+        <Item1>625</Item1>
+        <Item2>340</Item2>
       </Position>
       <Size>
-        <Item1>138</Item1>
-        <Item2>130</Item2>
+        <Item1>200</Item1>
+        <Item2>100</Item2>
       </Size>
       <SurfaceName>graphics/room1_unused_pillowcase.png</SurfaceName>
     </CollisionObject>
   </Objects>
   <Bounds>
     <Item1>120</Item1>
-    <Item2>610</Item2>
+    <Item2>560</Item2>
   </Bounds>
 </FirstRoom>
