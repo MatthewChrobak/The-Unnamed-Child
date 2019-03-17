@@ -95,6 +95,8 @@
     <Compile Include="Models\Rooms\Objects\MasterBed.cs" />
     <Compile Include="Models\Rooms\Objects\MasterBedSheet.cs" />
     <Compile Include="Models\Rooms\Objects\PillowCase.cs" />
+    <Compile Include="Models\Rooms\Objects\ScrewDriver.cs" />
+    <Compile Include="Models\Rooms\Objects\ScrewDriverDoor.cs" />
     <Compile Include="Models\Rooms\Objects\Stone.cs" />
     <Compile Include="Models\Rooms\Room.cs" />
     <Compile Include="Patterns\Singleton\Singleton.cs" />

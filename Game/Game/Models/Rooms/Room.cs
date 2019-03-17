@@ -25,6 +25,8 @@ namespace Game.Models.Rooms
     [XmlInclude(typeof(Cabinet))]
     [XmlInclude(typeof(MasterBed))]
     [XmlInclude(typeof(MasterBedSheet))]
+    [XmlInclude(typeof(ScrewDriver))]
+    [XmlInclude(typeof(ScrewDriverDoor))]
 
     [Serializable]
     public abstract class Room : IDrawableObject
