@@ -23,7 +23,9 @@ namespace Game.Models
         public void NewGame() {
             Player = new Player();
             _cachedRooms.Clear();
-            LoadRoom("MasterBedroom");
+            Singleton.Get<Globals>().DisableUserInput = false;
+            Singleton.Get<Globals>().DisableMovement = false;
+            LoadRoom("FirstRoom");
         }
 
         public void LoadRoom(string roomName) {

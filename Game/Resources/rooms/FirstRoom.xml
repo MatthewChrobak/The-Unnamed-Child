@@ -49,14 +49,13 @@
     <CollisionObject xsi:type="Faucet">
       <ItemID>3</ItemID>
       <Position>
-        <Item1>157.829208</Item1>
+        <Item1>190</Item1>
         <Item2>315</Item2>
       </Position>
       <Size>
-        <Item1>175</Item1>
+        <Item1>100</Item1>
         <Item2>175</Item2>
       </Size>
-      <SurfaceName>graphics/fade.png</SurfaceName>
     </CollisionObject>
   </Objects>
   <Bounds>

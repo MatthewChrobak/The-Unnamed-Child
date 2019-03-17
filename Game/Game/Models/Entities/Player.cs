@@ -22,7 +22,7 @@ namespace Game.Models.Entities
         public bool HasPillowCase;
         public bool HasStones;
 
-        public bool Hiding { get; internal set; }
+        public bool Hiding;
 
         public Player() {
             this._ctx = new SurfaceContext() {

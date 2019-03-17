@@ -9,6 +9,11 @@ namespace Game.Models.Rooms.Objects
         public override bool Probe(float x, float y) {
 
             if (base.Probe(x, y)) {
+
+                if (Singleton.Get<DataManager>().CurrentRoom.GetType() != typeof(BoilerRoom)) {
+                    return true;
+                }
+
                 var player = Singleton.Get<DataManager>().Player;
                 var globals = Singleton.Get<Globals>();
 

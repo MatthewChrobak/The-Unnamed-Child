@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <MasterBedroom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BackgroundImage>graphics/bedroom thank you.png</BackgroundImage>
+  <BackgroundImage>graphics/bedroom thank you2.png</BackgroundImage>
   <Size>
     <Item1>990</Item1>
     <Item2>540</Item2>
@@ -41,7 +41,7 @@
         <Item1>101</Item1>
         <Item2>84</Item2>
       </Size>
-      <SurfaceName>graphics/cabinet.png</SurfaceName>
+      <SurfaceName>graphics/cabinet2.png</SurfaceName>
     </CollisionObject>
     <CollisionObject xsi:type="Door">
       <ItemID>3</ItemID>
