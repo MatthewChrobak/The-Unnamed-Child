@@ -7,6 +7,7 @@
         INPUT,
         CAMERA,
         GRAPHICS,
+        SOUNDS,
         END
     }
 }
