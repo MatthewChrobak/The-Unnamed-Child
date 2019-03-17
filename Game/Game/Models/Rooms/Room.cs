@@ -172,6 +172,10 @@ namespace Game.Models.Rooms
             }, 100, 0);
         }
 
+        public virtual bool IsBabaYagaFlipped() {
+            return false;
+        }
+
         public virtual float GetBabaYagaScalingConstant() {
             return 1;
         }
