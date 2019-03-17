@@ -27,6 +27,8 @@ namespace Game.Models.Entities
         public bool Hiding;
 
         public bool HasScrewDriver { get; internal set; }
+        public bool HasApron { get; internal set; }
+        public bool HasBroom { get; internal set; }
 
         public Player() {
             this._ctx = new SurfaceContext() {

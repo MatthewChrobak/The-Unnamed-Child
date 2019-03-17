@@ -79,8 +79,10 @@
     <Compile Include="Models\Rooms\MasterBedroom.cs" />
     <Compile Include="Models\Rooms\Objects\Apron.cs" />
     <Compile Include="Models\Rooms\Objects\Boiler.cs" />
+    <Compile Include="Models\Rooms\Objects\Broom.cs" />
     <Compile Include="Models\Rooms\Objects\Bucket.cs" />
     <Compile Include="Models\Rooms\Objects\Cabinet.cs" />
+    <Compile Include="Models\Rooms\Objects\Cleaver.cs" />
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />
     <Compile Include="Models\DataManager.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Models\Rooms\FirstRoom.cs" />
     <Compile Include="Models\Rooms\LivingRoom.cs" />
     <Compile Include="Models\Rooms\Objects\CollisionObject.cs" />
+    <Compile Include="Models\Rooms\Objects\Exit.cs" />
     <Compile Include="Models\Rooms\Objects\Faucet.cs" />
     <Compile Include="Models\Rooms\Objects\FirstDoor.cs" />
     <Compile Include="Models\Rooms\Objects\Door.cs" />
