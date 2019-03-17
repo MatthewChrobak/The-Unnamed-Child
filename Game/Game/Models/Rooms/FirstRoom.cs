@@ -15,7 +15,15 @@ namespace Game.Models.Rooms
         }
 
         public override void OnLeave() {
+            
+        }
 
+        public override float GetBabaYagaStartXConstant() {
+            return 100;
+        }
+
+        public override float GetBabaYagaStartYConstant() {
+            return 200;
         }
     }
 }

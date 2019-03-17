@@ -16,5 +16,9 @@
         public virtual void JoystickMoved(uint joystickID, JoystickAxis axis, float position) {
 
         }
+
+        public virtual void OnEnter() {
+
+        }
     }
 }

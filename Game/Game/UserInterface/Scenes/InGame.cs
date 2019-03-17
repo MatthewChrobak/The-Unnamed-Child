@@ -1,6 +1,7 @@
 ﻿using Game.Graphics;
 using Game.IO;
 using Game.Models;
+using Game.Models.Entities;
 using Game.Models.Rooms;
 using Game.Models.Rooms.Objects;
 using Game.Patterns.Singleton;
@@ -13,6 +14,11 @@ namespace Game.UserInterface.Scenes
     {
         public InGame() {
             this.OnJoystickButtonPressed += (button) => {
+
+                if (Singleton.Get<Globals>().DisableUserInput) {
+                    return;
+                }
+
                 var data = Singleton.Get<DataManager>();
                 var room = data.CurrentRoom;
                 var player = data.Player;
@@ -82,10 +88,14 @@ namespace Game.UserInterface.Scenes
 #endif
 
                 if (button == JoystickButton.A) {
-                    for (int i =0; i <room.Objects.Count; i++) {
+                    for (int i = 0; i <room.Objects.Count; i++) {
                         var obj = room.Objects[i];
                         obj?.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
                     }
+                }
+
+                if (button == JoystickButton.X) {
+                    BabaYaga.Summon();
                 }
 
             };
@@ -95,10 +105,16 @@ namespace Game.UserInterface.Scenes
             var data = Singleton.Get<DataManager>();
             data.CurrentRoom.Draw(surface);
             data.Player.Draw(surface);
+            data.BabaYaga?.Draw(surface);
             base.Draw(surface);
         }
 
         public override void JoystickMoved(uint joystickID, JoystickAxis axis, float position) {
+
+            if (Singleton.Get<Globals>().DisableUserInput) {
+                return;
+            }
+
             switch (axis) {
                 case JoystickAxis.X:
                 case JoystickAxis.Y:

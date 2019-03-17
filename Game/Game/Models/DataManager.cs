@@ -14,6 +14,8 @@ namespace Game.Models
 
         private Dictionary<string, Room> _cachedRooms;
 
+        public BabaYaga BabaYaga;
+
         public DataManager() {
             _cachedRooms = new Dictionary<string, Room>();
         }

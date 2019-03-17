@@ -149,5 +149,17 @@ namespace Game.Models.Rooms
 
             }, 100, 0);
         }
+
+        public virtual float GetBabaYagaScalingConstant() {
+            return 1;
+        }
+
+        public virtual float GetBabaYagaStartXConstant() {
+            return 0;
+        }
+
+        public virtual float GetBabaYagaStartYConstant() {
+            return 0; 
+        }
     }
 }

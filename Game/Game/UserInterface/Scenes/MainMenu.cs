@@ -28,6 +28,9 @@ namespace Game.UserInterface.Scenes
                     VerticalCenter_Height = height
                 },
                 OnJoystickButtonPressed = (button) => {
+                    if (Singleton.Get<Globals>().DisableUserInput) {
+                        return;
+                    }
                     if (button == JoystickButton.A) {
                         Singleton.Get<DataManager>().NewGame();
                         Singleton.Get<UIManager>().LoadScene<InGame>();
@@ -36,10 +39,17 @@ namespace Game.UserInterface.Scenes
             });
 
             this.OnJoystickButtonPressed += (button) => {
+                if (Singleton.Get<Globals>().DisableUserInput) {
+                    return;
+                }
                 if (button == JoystickButton.Back) {
                     Singleton.Get<UIManager>().LoadScene<Closing>();
                 }
             };
+        }
+
+        public override void OnEnter() {
+            Singleton.Get<Globals>().DisableUserInput = false;
         }
     }
 }

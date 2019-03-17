@@ -64,6 +64,7 @@
     <Compile Include="Events\GameEvent.cs" />
     <Compile Include="Events\EventQueue.cs" />
     <Compile Include="Events\PriorityTypes.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Graphics\Cameras\Camera.cs" />
     <Compile Include="Graphics\Content\FontManager.cs" />
     <Compile Include="Graphics\Content\TextureManager.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Graphics\GameWindow.cs" />
     <Compile Include="Graphics\IDrawableObject.cs" />
     <Compile Include="Graphics\IDrawableSurface.cs" />
+    <Compile Include="Models\Entities\BabaYaga.cs" />
     <Compile Include="Models\Rooms\Objects\Apron.cs" />
     <Compile Include="Models\Rooms\Objects\Cloth.cs" />
     <Compile Include="IO\XML.cs" />

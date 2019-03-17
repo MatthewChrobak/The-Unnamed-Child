@@ -14,6 +14,7 @@ namespace Game
     {
         public static void Main(string[] args)
         {
+            var globals = Singleton.Create<Globals>();
             var queue = Singleton.Create<EventQueue>();
             var data = Singleton.Create<DataManager>();
             var ui = Singleton.Create<UIManager>();
