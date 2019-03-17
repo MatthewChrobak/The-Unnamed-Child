@@ -46,6 +46,13 @@ namespace Game.Models.Rooms
             RefreshContext();
         }
 
+        public virtual float AdjustSpeed(float position) {
+            if (Math.Abs(position) < 1) {
+                return 0;
+            }
+            return position;
+        }
+
         public void RefreshContext() {
             this._ctx = new SurfaceContext() {
                 Position = (0, 0),

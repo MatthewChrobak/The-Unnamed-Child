@@ -26,6 +26,12 @@ namespace Game
 
                 return EVENT_RETURN.NONE;
             }, 16, 0);
+            queue.AddEvent(PriorityTypes.ANIMATION, () => {
+
+                data.Player?.UpdateFrame();
+
+                return EVENT_RETURN.NONE;
+            }, 50, 0);
             queue.AddEvent(PriorityTypes.INPUT, () => {
 
                 Joystick.Update();

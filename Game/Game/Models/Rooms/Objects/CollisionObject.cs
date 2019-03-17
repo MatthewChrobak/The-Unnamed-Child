@@ -14,10 +14,6 @@ namespace Game.Models.Rooms.Objects
         private SurfaceContext _ctx;
         public string SurfaceName;
 
-        public CollisionObject() {
-
-        }
-
         public virtual bool Probe(float x, float y) {
             if (x >= Position.x && x <= Position.x + Size.x) {
                 if (y >= Position.y && y <= Position.y + Size.y) {

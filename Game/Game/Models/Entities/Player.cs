@@ -1,4 +1,5 @@
-﻿using Game.Graphics;
+﻿using System;
+using Game.Graphics;
 using Game.Graphics.Contexts;
 using Game.Patterns.Singleton;
 using Game.UserInterface;
@@ -11,31 +12,70 @@ namespace Game.Models.Entities
         public float X;
         private SurfaceContext _ctx;
 
+        private int _frame;
+        private int _frame_incrementer = 1;
+        private int _last_moved;
+        private int _dir = 1;
+
         public float Width;
         public float Height;
-        
+
         public Player() {
             this._ctx = new SurfaceContext() {
-                Size = (100, 175)
+                Size = (175, 175)
             };
         }
 
         public void Draw(IDrawableSurface surface) {
             this._ctx.Position = (this.X, this.Y);
+            this._ctx.Rect = (600 * _frame, 600 * _dir, 600, 600);
             surface.Draw("graphics/player.png", this._ctx);
         }
 
         public void HandleMove(JoystickAxis axis, float position) {
-            if (axis == JoystickAxis.X) {
-                this.X += position / 4;
-            }
-            if (axis == JoystickAxis.Y) {
-                this.Y += position / 4;
-            }
-            (float newX, float newY) = Singleton.Get<DataManager>().CurrentRoom.CheckBounds(this.X, this.Y);
+            if (axis == JoystickAxis.X || axis == JoystickAxis.Y) {
+                position /= 32;
 
-            this.X = newX;
-            this.Y = newY;
+                position = Singleton.Get<DataManager>().CurrentRoom.AdjustSpeed(position);
+
+                if (position == 0) {
+                    return;
+                }
+
+                if (position > 0 && axis == JoystickAxis.X) {
+                    _dir = 1;
+                } else if (position < 0 && axis == JoystickAxis.X) {
+                    _dir = 0;
+                }
+
+                if (axis == JoystickAxis.X) {
+                    this.X += position;
+                }
+                if (axis == JoystickAxis.Y) {
+                    this.Y += position / 32;
+                }
+
+                (float newX, float newY) = Singleton.Get<DataManager>().CurrentRoom.CheckBounds(this.X, this.Y);
+                this._last_moved = Environment.TickCount;
+                this.X = newX;
+                this.Y = newY;
+            }
+        }
+
+        public void UpdateFrame() {
+            if (Environment.TickCount - this._last_moved < 100) {
+
+                _frame += _frame_incrementer;
+                if (_frame == 6) {
+                    _frame_incrementer = -1;
+                }
+                if (_frame == 0) {
+                    _frame_incrementer = 1;
+                }
+            } else {
+                this._frame = 0;
+                _frame_incrementer = 1;
+            }
         }
 
         public void SetPos(float x, float y) {

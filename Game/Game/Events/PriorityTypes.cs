@@ -4,6 +4,7 @@
     {
         START,
         INPUT,
+        ANIMATION,
         CAMERA,
         GRAPHICS,
         END
