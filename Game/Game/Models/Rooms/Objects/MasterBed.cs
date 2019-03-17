@@ -30,7 +30,6 @@ namespace Game.Models.Rooms.Objects
 
                         counter--;
                         if (counter == 0) {
-                            globals.DisableMovement = false;
                             globals.DisableUserInput = false;
                             return EVENT_RETURN.REMOVE_FROM_QUEUE;
                         }

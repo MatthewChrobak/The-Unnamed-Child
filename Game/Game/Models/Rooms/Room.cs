@@ -27,6 +27,10 @@ namespace Game.Models.Rooms
     [XmlInclude(typeof(MasterBedSheet))]
     [XmlInclude(typeof(ScrewDriver))]
     [XmlInclude(typeof(ScrewDriverDoor))]
+    [XmlInclude(typeof(Apron))]
+    [XmlInclude(typeof(Cleaver))]
+    [XmlInclude(typeof(Exit))]
+    [XmlInclude(typeof(Broom))]
     [XmlInclude(typeof(Umbrella))]
     [XmlInclude(typeof(Crack))]
     [XmlInclude(typeof(Birds))]
@@ -173,6 +177,10 @@ namespace Game.Models.Rooms
                 }
 
             }, 100, 0);
+        }
+
+        public virtual bool IsBabaYagaFlipped() {
+            return false;
         }
 
         public virtual float GetBabaYagaScalingConstant() {

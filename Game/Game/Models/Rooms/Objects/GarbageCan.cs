@@ -10,7 +10,10 @@ namespace Game.Models.Rooms.Objects
 
             if (base.Probe(x, y)) {
 
-                if (Singleton.Get<DataManager>().CurrentRoom.GetType() != typeof(BoilerRoom)) {
+                if (
+                    Singleton.Get<DataManager>().CurrentRoom.GetType() != typeof(BoilerRoom)
+                    &&
+                    Singleton.Get<DataManager>().CurrentRoom.GetType() != typeof(Kitchen)) {
                     return true;
                 }
 
