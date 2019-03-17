@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <BoilerRoom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BackgroundImage>graphics/Room2_without_light.png</BackgroundImage>
+  <BackgroundImage>graphics/Room2_without light.png</BackgroundImage>
   <Size>
     <Item1>990</Item1>
     <Item2>540</Item2>
@@ -32,7 +32,6 @@
         <Item1>150</Item1>
         <Item2>372</Item2>
       </Size>
-      <SurfaceName>graphics/room1_unused_door.png</SurfaceName>
       <RoomName>MasterBedroom</RoomName>
       <PlayerX>800</PlayerX>
       <PlayerY>315</PlayerY>
@@ -71,10 +70,7 @@
         <Item1>300</Item1>
         <Item2>300</Item2>
       </Size>
-<<<<<<< HEAD
-=======
       <SurfaceName></SurfaceName>
->>>>>>> 6c3a2eddc2bad247cb95f9018c8f0182fa8c72c9
     </CollisionObject>
       <SurfaceName></SurfaceName>
   </Objects>

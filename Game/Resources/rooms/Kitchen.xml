@@ -6,7 +6,6 @@
     <Item2>540</Item2>
   </Size>
   <Player_Y_Height>300</Player_Y_Height>
-<<<<<<< HEAD
   <Objects>
     <CollisionObject xsi:type="Apron">
       <ItemID>0</ItemID>

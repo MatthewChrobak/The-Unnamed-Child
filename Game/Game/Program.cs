@@ -81,7 +81,7 @@ namespace Game
             queue.AddEvent(PriorityTypes.INPUT, () => {
 
             if (!spawning && data.CurrentRoom != null && data.CurrentRoom.GetType() != typeof(FirstRoom)) {
-                if (rng.Next(0, 100) < 15) {
+                if (rng.Next(0, 100) < 70) {
                         spawning = true;
 
                         sound.PlaySound(sound.laughFemale);

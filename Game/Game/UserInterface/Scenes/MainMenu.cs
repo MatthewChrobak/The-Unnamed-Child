@@ -1,4 +1,5 @@
-﻿using Game.Graphics.Contexts;
+﻿using Game.Graphics;
+using Game.Graphics.Contexts;
 using Game.Models;
 using Game.Patterns.Singleton;
 using Game.Sounds;
@@ -12,8 +13,7 @@ namespace Game.UserInterface.Scenes
 {
     public class MainMenu : Scene
     {
-        public MainMenu()
-        {
+        public MainMenu() {
             int x = 300;
             int y = 300;
             int width = 100;
@@ -24,37 +24,18 @@ namespace Game.UserInterface.Scenes
 
             music.Loop = true;
 
-            music.Play() ;
+            music.Play();
 
-
-            this.AddChild(new Button()
-            {
-                Position = (x, y),
-                Text = "Enter Game",
-                TextureName = "graphics/button.png",
-                ctxSurface = new SurfaceContext()
-                {
-                    Position = (x, y),
-                    Size = (width, height)
-                },
-                ctxText = new TextContext()
-                {
-                    Position = (x, y),
-                    FontColor = Color.White,
-                    HorizontalCenter_Width = width,
-                    VerticalCenter_Height = height
-                },
-                OnJoystickButtonPressed = (button) => {
-                    if (Singleton.Get<Globals>().DisableUserInput) {
-                        return;
-                    }
-                    if (button == JoystickButton.A) {
-                        music.Stop();
-                        Singleton.Get<DataManager>().NewGame();
-                        Singleton.Get<UIManager>().LoadScene<InGame>();
-                    }
+            this.OnJoystickButtonPressed += (button) => {
+                if (Singleton.Get<Globals>().DisableUserInput) {
+                    return;
                 }
-            });
+                if (button == JoystickButton.A) {
+                    music.Stop();
+                    Singleton.Get<DataManager>().NewGame();
+                    Singleton.Get<UIManager>().LoadScene<InGame>();
+                }
+            };
 
             this.OnJoystickButtonPressed += (button) => {
                 if (Singleton.Get<Globals>().DisableUserInput) {
@@ -68,6 +49,23 @@ namespace Game.UserInterface.Scenes
 
         public override void OnEnter() {
             Singleton.Get<Globals>().DisableUserInput = false;
+        }
+
+        public override void Draw(IDrawableSurface surface) {
+
+            surface.Draw("The Unnamed Child", new TextContext() {
+                FontSize = 42,
+                FontColor = Color.White,
+                HorizontalCenter_Width = GameWindow.WINDOW_WIDTH,
+                VerticalCenter_Height = GameWindow.WINDOW_HEIGHT
+            });
+
+            surface.Draw("Hit A to Play", new TextContext() {
+                FontSize = 24,
+                FontColor = Color.White,
+                HorizontalCenter_Width = GameWindow.WINDOW_WIDTH,
+                VerticalCenter_Height = GameWindow.WINDOW_HEIGHT * 1.125f
+            });
         }
     }
 }
