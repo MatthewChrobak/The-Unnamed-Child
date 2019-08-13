@@ -6,24 +6,24 @@ namespace Game.Models.Rooms.Objects
     [Serializable]
     public class MasterBedSheet : CollisionObject
     {
-    
-            public override bool Probe(float x, float y)
-            {
 
-                if (base.Probe(x, y))
-                {
+        public override bool Probe(float x, float y) {
 
-                    var data = Singleton.Get<DataManager>();
+            if (base.Probe(x, y)) {
 
-                    data.Player.HasBlanket = true;
+                var data = Singleton.Get<DataManager>();
 
-                    data.CurrentRoom.AddFloatingMessage("Picked up a blanket.", x, y - 100, 3000);
+                data.Player.HasBlanket = true;
 
-                    data.CurrentRoom.Objects[this.ItemID] = null;
-                }
+                data.CurrentRoom.AddFloatingMessage("Picked up a blanket.", x, y - 100, 3000);
+
+                data.CurrentRoom.Objects[this.ItemID] = null;
 
                 return true;
             }
-        
+
+            return false;
+        }
+
     }
 }

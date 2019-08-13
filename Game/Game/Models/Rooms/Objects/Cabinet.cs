@@ -18,9 +18,9 @@ namespace Game.Models.Rooms.Objects
                     player.Hiding = true;
                     globals.DisableMovement = true;
                 }
+                return true;
             }
-
-            return true;
+            return false;
         }
     }
 }

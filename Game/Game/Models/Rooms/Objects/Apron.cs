@@ -6,10 +6,8 @@ namespace Game.Models.Rooms.Objects
     [Serializable]
     public class Apron : CollisionObject
     {
-        public override bool Probe(float x, float y)
-        {
-            if (base.Probe(x, y))
-            {
+        public override bool Probe(float x, float y) {
+            if (base.Probe(x, y)) {
                 var data = Singleton.Get<DataManager>();
 
                 if (!data.Player.HasBroom) {
@@ -22,8 +20,9 @@ namespace Game.Models.Rooms.Objects
                 data.CurrentRoom.Objects[this.ItemID] = null;
 
                 data.CurrentRoom.AddFloatingMessage("I can parachute out with this!", x, y - 100, 3000);
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

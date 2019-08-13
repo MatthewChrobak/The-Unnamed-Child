@@ -42,6 +42,9 @@ namespace Game.Models.Entities
         }
 
         public void Draw(IDrawableSurface surface) {
+            if (Hiding) {
+                return;
+            }
             this._ctx.Position = (this.X, this.Y);
             this._ctx.Rect = (600 * _frame, 600 * _dir, 600, 600);
             surface.Draw("graphics/player.png", this._ctx);

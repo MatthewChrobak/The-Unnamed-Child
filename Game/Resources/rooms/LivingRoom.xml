@@ -69,8 +69,8 @@
       </Size>
       <SurfaceName></SurfaceName>
       <RoomName>Kitchen</RoomName>
-      <PlayerX>800</PlayerX>
-      <PlayerY>315</PlayerY>
+      <PlayerX>250</PlayerX>
+      <PlayerY>300</PlayerY>
     </CollisionObject>
   </Objects>
   <Bounds>

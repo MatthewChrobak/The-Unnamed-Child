@@ -47,9 +47,11 @@ namespace Game.Models.Rooms.Objects
                     room.Objects[this.ItemID + 1].Position.x += 10;
                     room.Objects[this.ItemID + 1].RefreshContext();
                 }
+
+                return true;
             }
 
-            return true;
+            return false;
         }
     }
 }

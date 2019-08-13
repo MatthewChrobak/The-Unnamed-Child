@@ -1,15 +1,14 @@
 ﻿using Game.Events;
 using Game.Graphics;
 using Game.Models;
+using Game.Models.Entities;
+using Game.Models.Rooms;
 using Game.Patterns.Singleton;
+using Game.Sounds;
 using Game.UserInterface;
 using Game.UserInterface.Scenes;
 using SFML.Window;
 using System;
-using Game.Sounds;
-using Game.Models.Rooms;
-using Game.Models.Entities;
-using SFML.Audio;
 
 namespace Game
 {
@@ -39,13 +38,13 @@ namespace Game
             {
                 graphics.Draw();
                 return EVENT_RETURN.NONE;
-            }, 16, 0);  
+            }, 16, 0, "Graphics");  
             queue.AddEvent(PriorityTypes.ANIMATION, () => {
 
                 data.Player?.UpdateFrame();
 
                 return EVENT_RETURN.NONE;
-            }, 50, 0);
+            }, 50, 0, "Player Animation");
             queue.AddEvent(PriorityTypes.INPUT, () => {
 
                 if (globals.DisableMovement) {
@@ -73,7 +72,7 @@ namespace Game
 
 
                 return EVENT_RETURN.NONE;
-            }, 16, 0);
+            }, 16, 0, "User Input");
 
 
             var rng = new Random();
@@ -81,7 +80,7 @@ namespace Game
             queue.AddEvent(PriorityTypes.INPUT, () => {
 
             if (!spawning && data.CurrentRoom != null && data.CurrentRoom.GetType() != typeof(FirstRoom)) {
-                if (rng.Next(0, 100) < 70) {
+                if (rng.Next(0, 100) < 5) {
                         spawning = true;
 
                         sound.PlaySound(sound.laughFemale);

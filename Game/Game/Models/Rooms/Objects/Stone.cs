@@ -9,10 +9,8 @@ namespace Game.Models.Rooms.Objects
     [Serializable]
     public class Stone : CollisionObject
     {
-        public override bool Probe(float x, float y)
-        {
-            if (base.Probe(x, y))
-            {
+        public override bool Probe(float x, float y) {
+            if (base.Probe(x, y)) {
                 var data = Singleton.Get<DataManager>();
                 var sound = Singleton.Get<SoundManager>();
 
@@ -26,8 +24,7 @@ namespace Game.Models.Rooms.Objects
                     data.CurrentRoom.AddFloatingMessage("I can put these in my pillowcase!", x, y - 100, 2500);
                 }
 
-                if(data.Player.HasStones != true)
-                {
+                if (data.Player.HasStones != true) {
                     data.Player.HasStones = true;
 
                     SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.stoneFall));
@@ -37,9 +34,10 @@ namespace Game.Models.Rooms.Objects
                     sound.PlaySound(m, 20f);
                 }
                 data.Player.HasStones = true;
-              
+
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

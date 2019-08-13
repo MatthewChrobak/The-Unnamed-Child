@@ -24,8 +24,7 @@ namespace Game.Models.Rooms.Objects
                     data.CurrentRoom.AddFloatingMessage("I can put my stones in here!", x, y - 100, 2500);
                 }
 
-                if(data.Player.HasPillowCase != true)
-                {
+                if (data.Player.HasPillowCase != true) {
                     var sound = Singleton.Get<SoundManager>();
 
                     SoundBuffer pillowCaseSound = new SoundBuffer(File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + sound.pillowFluff));
@@ -39,8 +38,9 @@ namespace Game.Models.Rooms.Objects
 
                 data.Player.HasPillowCase = true;
 
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

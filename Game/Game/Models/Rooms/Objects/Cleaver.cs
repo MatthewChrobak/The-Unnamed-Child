@@ -15,15 +15,14 @@ namespace Game.Models.Rooms.Objects
                     data.CurrentRoom.AddFloatingMessage("I can't reach that!", x, y - 100, 3000);
                     return true;
                 }
-                if (data.Player.HasBroom)
-                {
+                if (data.Player.HasBroom) {
                     data.CurrentRoom.AddFloatingMessage("This seem to be useful...but for what?", x, y - 100, 3000);
                     player.hasClever = true;
                     data.CurrentRoom.Objects[this.ItemID] = null;
                 }
+                return true;
             }
-
-            return true;
+            return false;
         }
     }
 }

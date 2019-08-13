@@ -21,14 +21,17 @@ namespace Game.Events
             queue[(int)type].Add(e);
         }
 
-        public void AddEvent(PriorityTypes type, Func<EVENT_RETURN> e, int interval_ms, int delay_ms) {
-            AddEvent(type, new GameEvent(e, interval_ms, delay_ms));
+        public void AddEvent(PriorityTypes type, Func<EVENT_RETURN> e, int interval_ms, int delay_ms, string identifier = "null") {
+            AddEvent(type, new GameEvent(e, interval_ms, delay_ms, identifier));
         }
 
         public void Run() {
             int tick;
             int lastTick = Environment.TickCount;
             var ui = Singleton.Get<UIManager>();
+
+            int statsInterval = 7000;
+            int statsTick = Environment.TickCount + statsInterval;
 
             while (ui._currentSceneID != typeof(Closing)) {
                 tick = Environment.TickCount;
@@ -39,6 +42,7 @@ namespace Game.Events
                     Thread.Yield();
                     continue;
                 }
+
                 for (int i = (int)PriorityTypes.START; i <= (int)PriorityTypes.END; i++) {
                     for (int ii = 0; ii < queue[i].Count; ii++) {
                         var res = queue[i][ii].Probe(dif);
@@ -50,6 +54,18 @@ namespace Game.Events
                     }
                 }
 
+                // Uncomment for stats
+                //if (statsTick <= tick) {
+                //    Console.WriteLine();
+                //    Console.WriteLine("-------------------------------------------------");
+                //    for (int i = (int)PriorityTypes.START; i <= (int)PriorityTypes.END; i++) {
+                //        for (var ii = 0; ii < queue[i].Count; ii++) {
+                //            queue[i][ii].DisplayStatistics(statsInterval);
+                //        }
+                //    }
+                //    Console.WriteLine("-------------------------------------------------");
+                //    statsTick = tick + statsInterval;
+                //}
                 Thread.Yield();
             }
         }

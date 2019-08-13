@@ -52,7 +52,6 @@ namespace Game.Models.Rooms.Objects
                 else
                 {
                     data.CurrentRoom.AddFloatingMessage("There is nothing inside this", x, y - 100, 2500);
-
                 }
 
                 
@@ -64,9 +63,9 @@ namespace Game.Models.Rooms.Objects
                 sound.PlaySound(m, 20f);
 
                 sound.StopSound(m, 1000);
-
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

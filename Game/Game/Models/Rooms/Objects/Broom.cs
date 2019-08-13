@@ -18,9 +18,9 @@ namespace Game.Models.Rooms.Objects
                 data.CurrentRoom.AddFloatingMessage("Now I can reach those things!", x, y - 100, 3000);
 
                 data.CurrentRoom.Objects[this.ItemID] = null;
+                return true;
             }
-
-            return true;
+            return false;
         }
     }
 }

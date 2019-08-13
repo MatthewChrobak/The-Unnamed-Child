@@ -91,7 +91,9 @@ namespace Game.UserInterface.Scenes
                 if (button == JoystickButton.A) {
                     for (int i = 0; i <room.Objects.Count; i++) {
                         var obj = room.Objects[i];
-                        obj?.Probe(player.X + player.Width / 2, player.Y + player.Height / 2);
+                        if (obj?.Probe(player.X + (player.Width / 2), player.Y + (player.Height / 2)) == true) {
+                            break;
+                        }
                     }
                 }
             };

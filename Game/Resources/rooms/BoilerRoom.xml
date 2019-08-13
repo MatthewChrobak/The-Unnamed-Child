@@ -33,8 +33,8 @@
         <Item2>372</Item2>
       </Size>
       <RoomName>MasterBedroom</RoomName>
-      <PlayerX>800</PlayerX>
-      <PlayerY>315</PlayerY>
+      <PlayerX>600</PlayerX>
+      <PlayerY>435</PlayerY>
     </CollisionObject>
     <CollisionObject xsi:type="GarbageCan">
       <ItemID>2</ItemID>
