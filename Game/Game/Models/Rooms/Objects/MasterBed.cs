@@ -18,7 +18,7 @@ namespace Game.Models.Rooms.Objects
                 if (this.Position.x > 450) {
 
                     if (x < 600 || x > 610) {
-                        return true;
+                        return false;
                     }
                     globals.DisableMovement = true;
                     globals.DisableUserInput = true;
