@@ -14,14 +14,22 @@ namespace Game.Models.Rooms.Objects
             if (base.Probe(x, y)) {
 
                 var data = Singleton.Get<DataManager>();
-                data.LoadRoom(this.RoomName);
+                if (data.Player.isBoilerOn)
+                {
+                    data.LoadRoom(this.RoomName);
 
-                float playerx = PlayerX;
-                float playery = PlayerY;
+                    float playerx = PlayerX;
+                    float playery = PlayerY;
 
-                data.Player.SetPos(playerx, playery);
+                    data.Player.SetPos(playerx, playery);
 
-                return true;
+                    return true;
+                }
+                if (!data.Player.isBoilerOn)
+                {
+                    data.CurrentRoom.AddFloatingMessage("This house feel so cold...", x, y - 100, 2500);
+                }
+
             }
 
             return false;
